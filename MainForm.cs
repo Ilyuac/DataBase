@@ -17,7 +17,7 @@ namespace BDApp
             InitializeComponent();
 
             DataBase.Connection("SELECT Students.FIO, Students.[Group], Subjects.SubjectName, Tables.Mark FROM((Subjects INNER JOIN Tables ON Subjects.IDSubject = Tables.IDSubject) INNER JOIN Students ON Tables.IDStudent = Students.IDStudent)");
-            
+
             ///Test Work Connection
             //foreach (DataRow row in DataBase.GetTable().Rows)
             //{
@@ -26,5 +26,9 @@ namespace BDApp
 
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //DataBase.Connection("")
+        }
     }
 }

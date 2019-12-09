@@ -45,7 +45,6 @@ namespace BDApp
                     {
                         newRow[col.ColumnName] = dataReader[col.ColumnName];
                     }
-                    //Table.Rows.Add(newRow);
                 }
             }
             else
