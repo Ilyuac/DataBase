@@ -22,7 +22,7 @@ namespace BDApp
             return Table;
         }
 
-        public static DataTable Connection(string command)
+        public static void Connection(string command)
         {
             Table = new DataTable();
             connection = new OleDbConnection(connectionString);
@@ -60,6 +60,45 @@ namespace BDApp
 
             dataReader.Close();
             ConnectionClose();
+        }
+
+        public static DataTable SelectCommand(string command)
+        {
+            Table = new DataTable();
+            connection = new OleDbConnection(connectionString);
+            ConnectionOpen();
+
+            dbCommand = new OleDbCommand(command, connection);
+            dataReader = dbCommand.ExecuteReader();
+
+            if (dataReader.HasRows)
+            {
+                DataTable schemaTable = dataReader.GetSchemaTable();
+                schemaTable.TableName = command.Split(' ')[3];
+                foreach (DataRow row in schemaTable.Rows)
+                {
+                    string colName = row.Field<string>("ColumnName");
+                    Type t = row.Field<Type>("DataType");
+                    Table.Columns.Add(colName, t);
+                }
+                while (dataReader.Read())
+                {
+                    var newRow = Table.Rows.Add();
+                    foreach (DataColumn col in Table.Columns)
+                    {
+                        newRow[col.ColumnName] = dataReader[col.ColumnName];
+                    }
+                }
+                Table.TableName = dataReader.GetSchemaTable().TableName;
+            }
+            else
+            {
+                MessageBox.Show("Запрос не вернул строк.", "Предупреждение!");
+            }
+
+            dataReader.Close();
+            ConnectionClose();
+
             return Table;
         }
 
