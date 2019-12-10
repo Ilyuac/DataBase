@@ -109,7 +109,7 @@ namespace BDApp
 
         private void butSave_Click(object sender, EventArgs e)
         {
-
+            Save();
         }
 
         private void bindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
@@ -175,6 +175,7 @@ namespace BDApp
             command.Parameters.AddWithValue("Name", tBName.Text);
             command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
             command.Parameters.AddWithValue("Group", tBGroup.Text);
+            command.Parameters.AddWithValue("IDSpecial", tBSpecial);
 
             DataBase.DBCommand(command);
             }
