@@ -21,14 +21,15 @@ namespace BDApp
 
             bindingNavigatorDeleteItem.Enabled = true;
             bindingNavigatorAddNewItem.Enabled = true;
+
             butNext.Enabled = true;
             bindingNavigatorMoveNextItem.Enabled = true;
             bindingNavigatorMoveLastItem.Enabled = true;
             butLast.Enabled = true;
-            butNext.Enabled = false;
-            bindingNavigatorMoveNextItem.Enabled = false;
-            butLast.Enabled = false;
-            bindingNavigatorMoveLastItem.Enabled = false;
+            butFrist.Enabled = false;
+            bindingNavigatorMoveFirstItem.Enabled = false;
+            bindingNavigatorMovePreviousItem.Enabled = false;
+            butPrevios.Enabled = false;
 
             foreach (DataTable table in DataBase.Tables)
             {
@@ -56,6 +57,8 @@ namespace BDApp
 
         private void LoadInfo(int i)
         {
+            bindingNavigatorPositionItem.Text = nomber.ToString();
+
             tBSecondName.Text = rows[i]["Family"].ToString();
             tBName.Text = rows[i]["Name"].ToString();
             tBMiddlName.Text = rows[i]["MiddleName"].ToString();
@@ -130,7 +133,7 @@ namespace BDApp
 
         private void bindingNavigatorMoveLastItem_Click(object sender, EventArgs e)
         {
-            nomber = rows.Count - 1;
+            nomber = rows.Count;
             LoadInfo(nomber);
         }
 
@@ -168,7 +171,7 @@ namespace BDApp
 
         private void Previos()
         {
-            if (nomber > 0)
+            if (nomber >= 0)
             {
                 nomber--;
 
