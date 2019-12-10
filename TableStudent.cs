@@ -169,6 +169,19 @@ namespace BDApp
             }
         }
 
+        private void Save()
+            {
+            System.Data.OleDb.OleDbCommand command =
+            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, Name = @Name, MiddleName = @MiddleName, Group = @Group, IDSpecial = @IDSpecial WHERE IDStudent = @IDStudent",
+            DataBase.connection);
+            command.Parameters.AddWithValue("Family", tBSecondName.Text);
+            command.Parameters.AddWithValue("Name", tBName.Text);
+            command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
+            command.Parameters.AddWithValue("Group", tBGroup.Text);
+
+            DataBase.DBCommand(command);
+            }
+
         private void Previos()
         {
             if (nomber >= 0)
