@@ -22,23 +22,21 @@ namespace BDApp
             OleDbCommand myOleDbCommand = myOleDbConnection.CreateCommand();
             // задаем SQL-запрос к базе данных в свойстве CommandText объекта OleDbCommand
             // Результатом запроса должны быть данные клинета с именем Кто-то
-            myOleDbCommand.CommandText = "SELECT * FROM Specialties";
+            myOleDbCommand.CommandText = "SELECT Students.Name, Students.Family, Tables.Mark  FROM Students,Tables WHERE Students.IDStudent=Tables.IDStudent";
             // открываем соединение с БД с помощью метода Open() объекта OleDbConnection
             myOleDbConnection.Open();
             // создаем объект OleDbDataReader и вызываем метод ExecuteReader() для выполнения введенного SQL-запроса
             OleDbDataReader myOleDbDataReader = myOleDbCommand.ExecuteReader();
             while (myOleDbDataReader.Read())
             {
-
+                
                 students.Add(new Student
                 {
-                    name = (string)myOleDbDataReader[0],
-                    fam = (string)myOleDbDataReader[1],
-                    bull = (int)myOleDbDataReader[2],
+                    name = Convert.ToString(myOleDbDataReader[0]),
+                    fam = Convert.ToString(myOleDbDataReader[1]),
+                    bull = Convert.ToInt32(myOleDbDataReader[2])
 
                 });
-                //students.Add(new Student() { id_student=i[0]. });
-                //students.Add(i);
             }
             
         }
