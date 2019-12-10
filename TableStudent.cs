@@ -176,14 +176,10 @@ namespace BDApp
             new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, Name = @Name, MiddleName = @MiddleName, Group = @Group, IDSpecial=" +ids+ " WHERE IDStudent=@n",
             DataBase.connection);
             command.Parameters.AddWithValue("Family", tBSecondName.Text);
+            command.Parameters.AddWithValue("Name", tBName.Text);
+            command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
+            command.Parameters.AddWithValue("Group", tBGroup.Text); ;
             command.Parameters.AddWithValue("n", rows[nomber]["IDStudent"].ToString());
-            System.Data.OleDb.OleDbCommand command1 =
-           new System.Data.OleDb.OleDbCommand("SELECT IDSpecial, Specialty FROM Specialty",
-           DataBase.connection);
-            cBSpetialty.DataSource = command1.ExecuteReader();
-            cBSpetialty.ValueMember = "IDSpecial";
-            cBSpetialty.DisplayMember = "Specialty";
-
             DataBase.DBCommand(command);
 
 
@@ -192,14 +188,12 @@ namespace BDApp
         private void AddChange()
             {
              System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, Name = @Name, MiddleName = @MiddleName, Group = @Group, IDSpecial = @IDSpecial WHERE IDStudent = @IDStudent",
-            DataBase.connection);
+            new System.Data.OleDb.OleDbCommand("Insert Into Students (Family, Name, MiddleName, Group,)"+
+                           "Values(@Family, @Name, @MiddleName, @Group,)", DataBase.connection);
             command.Parameters.AddWithValue("Family", tBSecondName.Text);
             command.Parameters.AddWithValue("Name", tBName.Text);
             command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
             command.Parameters.AddWithValue("Group", tBGroup.Text);
-            command.Parameters.AddWithValue("IDSpecial", cBSpetialty);
-
             DataBase.DBCommand(command);
             }
 
