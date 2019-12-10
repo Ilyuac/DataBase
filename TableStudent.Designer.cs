@@ -56,6 +56,7 @@
             this.butAdd = new System.Windows.Forms.Button();
             this.butDel = new System.Windows.Forms.Button();
             this.butSave = new System.Windows.Forms.Button();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.bNStudent)).BeginInit();
             this.bNStudent.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +88,8 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
+            this.bindingNavigatorDeleteItem,
+            this.toolStripButton1});
             this.bNStudent.Location = new System.Drawing.Point(0, 0);
             this.bNStudent.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bNStudent.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -95,7 +97,7 @@
             this.bNStudent.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bNStudent.Name = "bNStudent";
             this.bNStudent.PositionItem = this.bindingNavigatorPositionItem;
-            this.bNStudent.Size = new System.Drawing.Size(465, 27);
+            this.bNStudent.Size = new System.Drawing.Size(465, 31);
             this.bNStudent.TabIndex = 3;
             this.bNStudent.Text = "bNStudent";
             // 
@@ -105,8 +107,9 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -133,6 +136,7 @@
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Переместить в начало";
+            this.bindingNavigatorMoveFirstItem.Click += new System.EventHandler(this.bindingNavigatorMoveFirstItem_Click);
             // 
             // bindingNavigatorMovePreviousItem
             // 
@@ -142,6 +146,7 @@
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Переместить назад";
+            this.bindingNavigatorMovePreviousItem.Click += new System.EventHandler(this.bindingNavigatorMovePreviousItem_Click);
             // 
             // bindingNavigatorSeparator
             // 
@@ -171,6 +176,7 @@
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "Переместить вперед";
+            this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.bindingNavigatorMoveNextItem_Click);
             // 
             // bindingNavigatorMoveLastItem
             // 
@@ -180,6 +186,7 @@
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Переместить в конец";
+            this.bindingNavigatorMoveLastItem.Click += new System.EventHandler(this.bindingNavigatorMoveLastItem_Click);
             // 
             // bindingNavigatorSeparator2
             // 
@@ -194,6 +201,7 @@
             this.butFrist.TabIndex = 4;
             this.butFrist.Text = "Перейди к первой записи";
             this.butFrist.UseVisualStyleBackColor = true;
+            this.butFrist.Click += new System.EventHandler(this.butFrist_Click);
             // 
             // label2
             // 
@@ -254,6 +262,7 @@
             this.butNext.TabIndex = 13;
             this.butNext.Text = "Перейди к следующей записи";
             this.butNext.UseVisualStyleBackColor = true;
+            this.butNext.Click += new System.EventHandler(this.butNext_Click);
             // 
             // butLast
             // 
@@ -263,6 +272,7 @@
             this.butLast.TabIndex = 14;
             this.butLast.Text = "Перейди к последней записи";
             this.butLast.UseVisualStyleBackColor = true;
+            this.butLast.Click += new System.EventHandler(this.butLast_Click);
             // 
             // butPrevios
             // 
@@ -272,7 +282,7 @@
             this.butPrevios.TabIndex = 15;
             this.butPrevios.Text = "Перейди к прошлой записи";
             this.butPrevios.UseVisualStyleBackColor = true;
-            this.butPrevios.Click += new System.EventHandler(this.button3_Click);
+            this.butPrevios.Click += new System.EventHandler(this.butPrevios_Click);
             // 
             // butAdd
             // 
@@ -282,6 +292,7 @@
             this.butAdd.TabIndex = 16;
             this.butAdd.Text = "Добавить запись";
             this.butAdd.UseVisualStyleBackColor = true;
+            this.butAdd.Click += new System.EventHandler(this.butAdd_Click);
             // 
             // butDel
             // 
@@ -291,6 +302,7 @@
             this.butDel.TabIndex = 17;
             this.butDel.Text = "Удплить запись";
             this.butDel.UseVisualStyleBackColor = true;
+            this.butDel.Click += new System.EventHandler(this.butDel_Click);
             // 
             // butSave
             // 
@@ -300,6 +312,17 @@
             this.butSave.TabIndex = 18;
             this.butSave.Text = "Сохранить запись";
             this.butSave.UseVisualStyleBackColor = true;
+            this.butSave.Click += new System.EventHandler(this.butSave_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripSaveItem_Click);
             // 
             // TableStudent
             // 
@@ -359,5 +382,6 @@
         private System.Windows.Forms.Button butAdd;
         private System.Windows.Forms.Button butDel;
         private System.Windows.Forms.Button butSave;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
