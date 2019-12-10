@@ -57,7 +57,7 @@ namespace BDApp
 
         private void LoadInfo(int i)
         {
-            bindingNavigatorPositionItem.Text = nomber.ToString();
+            bindingNavigatorPositionItem.Text = (nomber+1).ToString();
 
             tBSecondName.Text = rows[i]["Family"].ToString();
             tBName.Text = rows[i]["Name"].ToString();
