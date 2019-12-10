@@ -16,7 +16,7 @@ namespace BDApp
         {
             InitializeComponent();
         }
-        string stringConnect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\jadeo\source\repos\DataBase\Database.mdb";
+        string stringConnect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\VS Project\BDApp\Database.mdb";
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();

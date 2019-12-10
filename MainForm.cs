@@ -28,6 +28,12 @@ namespace BDApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            UPdate();
+        }
+
+        public void UPdate()
+        {
+            DataBase.Tables.Clear();
             DataBase.Connection("SELECT * FROM Specialty");
             DataBase.Connection("SELECT * FROM Students");
             DataBase.Connection("SELECT * FROM Subjects");
@@ -37,18 +43,21 @@ namespace BDApp
         private void butSpetial_Click(object sender, EventArgs e)
         {
             TableSpetial spetial = new TableSpetial();
+            UPdate();
             spetial.Show();
         }
 
         private void butSubject_Click(object sender, EventArgs e)
         {
             TableSubject subject = new TableSubject();
+            UPdate();
             subject.Show();
         }
 
         private void butStud_Click(object sender, EventArgs e)
         {
             TableStudent student = new TableStudent();
+            UPdate();
             student.Show();
         }
 
@@ -60,6 +69,7 @@ namespace BDApp
         private void button1_Click(object sender, EventArgs e)
         {
             LINQStudent student = new LINQStudent();
+            UPdate();
             student.Show();
         }
     }
