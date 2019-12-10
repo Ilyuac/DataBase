@@ -68,7 +68,7 @@ namespace BDApp
             {
                 if (specialty["IDSpecial"].ToString() == rows[i]["IDSpecial"].ToString())
                 {
-                    tBSpecial.Text = specialty["Specialty"].ToString();
+                    cBSpetialty.Text = specialty["Specialty"].ToString();
                 }
             }
         }
@@ -195,7 +195,7 @@ namespace BDApp
             command.Parameters.AddWithValue("Name", tBName.Text);
             command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
             command.Parameters.AddWithValue("Group", tBGroup.Text);
-            command.Parameters.AddWithValue("IDSpecial", tBSpecial);
+            command.Parameters.AddWithValue("IDSpecial", cBSpetialty);
 
             DataBase.DBCommand(command);
             }
