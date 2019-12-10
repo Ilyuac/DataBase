@@ -48,7 +48,8 @@ namespace BDApp
 
         private void butStud_Click(object sender, EventArgs e)
         {
-
+            TableStudent student = new TableStudent();
+            student.Show();
         }
 
         private void butMark_Click(object sender, EventArgs e)
