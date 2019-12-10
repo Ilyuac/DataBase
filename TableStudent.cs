@@ -81,7 +81,7 @@ namespace BDApp
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-
+            Delete();
         }
 
         private void butFrist_Click(object sender, EventArgs e)
@@ -108,12 +108,12 @@ namespace BDApp
 
         private void butAdd_Click(object sender, EventArgs e)
         {
-
+            AddChange();
         }
 
         private void butDel_Click(object sender, EventArgs e)
         {
-
+            Delete();
         }
 
         private void butSave_Click(object sender, EventArgs e)
@@ -145,12 +145,12 @@ namespace BDApp
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-
+            AddChange();
         }
 
         private void toolStripSaveItem_Click(object sender, EventArgs e)
         {
-
+            Save();
         }
 
         private void Next()
@@ -178,9 +178,12 @@ namespace BDApp
         private void Save()
             {
             System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, IDSpecial=" +ids+ " WHERE IDStudent=@n",
+            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, Name = @Name, MiddleName = @MiddleName, [Group] = @Group, IDSpecial=" + ids+ " WHERE IDStudent=@n",
             DataBase.connection);
             command.Parameters.AddWithValue("Family", tBSecondName.Text);
+            command.Parameters.AddWithValue("Name", tBName.Text);
+            command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
+            command.Parameters.AddWithValue("Group", tBGroup.Text);
             command.Parameters.AddWithValue("n", rows[nomber]["IDStudent"].ToString());
             
 
@@ -192,16 +195,23 @@ namespace BDApp
         private void AddChange()
             {
              System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, Name = @Name, MiddleName = @MiddleName, Group = @Group, IDSpecial = @IDSpecial WHERE IDStudent = @IDStudent",
+            new System.Data.OleDb.OleDbCommand("INSERT INTO [Students] ([Family], [Name], [MiddleName], [Group], [IDSpecial]) VALUES (@Family, @Name, @MiddleName, @Group, IDSpecial="+ids,
             DataBase.connection);
             command.Parameters.AddWithValue("Family", tBSecondName.Text);
             command.Parameters.AddWithValue("Name", tBName.Text);
             command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
             command.Parameters.AddWithValue("Group", tBGroup.Text);
-            command.Parameters.AddWithValue("IDSpecial", cBSpetialty);
-
             DataBase.DBCommand(command);
             }
+
+        private void Delete()
+        {
+            System.Data.OleDb.OleDbCommand command =
+           new System.Data.OleDb.OleDbCommand("DELETE FROM Students WHERE IDStudent=@n",
+           DataBase.connection);
+           command.Parameters.AddWithValue("n", rows[nomber]["IDStudent"].ToString());
+           DataBase.DBCommand(command);
+        }
 
         private void Previos()
         {
