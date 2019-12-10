@@ -11,10 +11,11 @@ namespace BDApp
     public abstract class DataBase
     {
         static string connectionString = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\VS Project\BDApp\Database.mdb";
-        static OleDbConnection connection;
+        public static OleDbConnection connection;
         static OleDbCommand dbCommand;
         static OleDbDataReader dataReader;
-        private static DataTable Table = new DataTable();
+        private static DataTable Table;
+        public static List<DataTable> Tables = new List<DataTable>(); 
 
         public static DataTable GetTable()
         {
@@ -23,6 +24,7 @@ namespace BDApp
 
         public static void Connection(string command)
         {
+            Table = new DataTable();
             connection = new OleDbConnection(connectionString);
             ConnectionOpen();
 
@@ -32,6 +34,7 @@ namespace BDApp
             if (dataReader.HasRows)
             {
                 DataTable schemaTable = dataReader.GetSchemaTable();
+                schemaTable.TableName = command.Split(' ')[3];
                 foreach (DataRow row in schemaTable.Rows)
                 {
                     string colName = row.Field<string>("ColumnName");
@@ -46,6 +49,9 @@ namespace BDApp
                         newRow[col.ColumnName] = dataReader[col.ColumnName];
                     }
                 }
+                Table.TableName = dataReader.GetSchemaTable().TableName;
+
+                Tables.Add(Table);
             }
             else
             {
@@ -56,10 +62,12 @@ namespace BDApp
             ConnectionClose();
         }
 
-        public static void DBCommand(string command)
+        public static void DBCommand(OleDbCommand command)
         {
-            dbCommand = new OleDbCommand(command, connection);
+            ConnectionOpen();
+            dbCommand = command;
             dbCommand.ExecuteNonQuery();
+            ConnectionClose();
         }
 
         public static void ConnectionOpen()
