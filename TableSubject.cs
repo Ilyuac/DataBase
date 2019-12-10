@@ -24,7 +24,7 @@ namespace BDApp
                     foreach (DataRow row in table.Rows)
                     {
                         rows.Add(row);
-                        CBSpetial.Items.Add(row["Subjects"].ToString());
+                        CBSpetial.Items.Add(row["SubjectName"].ToString());
                     }
                 }
             }

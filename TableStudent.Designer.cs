@@ -43,9 +43,10 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.butFrist = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.tBName = new System.Windows.Forms.TextBox();
+            this.tBSecondName = new System.Windows.Forms.TextBox();
             this.tBSpecial = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tBGroup = new System.Windows.Forms.TextBox();
@@ -56,7 +57,10 @@
             this.butAdd = new System.Windows.Forms.Button();
             this.butDel = new System.Windows.Forms.Button();
             this.butSave = new System.Windows.Forms.Button();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.tBMiddlName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tBName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bNStudent)).BeginInit();
             this.bNStudent.SuspendLayout();
             this.SuspendLayout();
@@ -97,7 +101,7 @@
             this.bNStudent.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bNStudent.Name = "bNStudent";
             this.bNStudent.PositionItem = this.bindingNavigatorPositionItem;
-            this.bNStudent.Size = new System.Drawing.Size(465, 31);
+            this.bNStudent.Size = new System.Drawing.Size(465, 27);
             this.bNStudent.TabIndex = 3;
             this.bNStudent.Text = "bNStudent";
             // 
@@ -107,7 +111,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
@@ -193,9 +197,19 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripSaveItem_Click);
+            // 
             // butFrist
             // 
-            this.butFrist.Location = new System.Drawing.Point(12, 169);
+            this.butFrist.Location = new System.Drawing.Point(12, 224);
             this.butFrist.Name = "butFrist";
             this.butFrist.Size = new System.Drawing.Size(142, 49);
             this.butFrist.TabIndex = 4;
@@ -209,20 +223,20 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(47, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 25);
+            this.label2.Size = new System.Drawing.Size(109, 25);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Ф. И. О. :";
+            this.label2.Text = "Фамилия:";
             // 
-            // tBName
+            // tBSecondName
             // 
-            this.tBName.Location = new System.Drawing.Point(215, 78);
-            this.tBName.Name = "tBName";
-            this.tBName.Size = new System.Drawing.Size(235, 22);
-            this.tBName.TabIndex = 6;
+            this.tBSecondName.Location = new System.Drawing.Point(215, 78);
+            this.tBSecondName.Name = "tBSecondName";
+            this.tBSecondName.Size = new System.Drawing.Size(235, 22);
+            this.tBSecondName.TabIndex = 6;
             // 
             // tBSpecial
             // 
-            this.tBSpecial.Location = new System.Drawing.Point(215, 134);
+            this.tBSpecial.Location = new System.Drawing.Point(215, 189);
             this.tBSpecial.Name = "tBSpecial";
             this.tBSpecial.Size = new System.Drawing.Size(235, 22);
             this.tBSpecial.TabIndex = 10;
@@ -231,7 +245,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(47, 130);
+            this.label4.Location = new System.Drawing.Point(47, 185);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(162, 25);
             this.label4.TabIndex = 9;
@@ -239,7 +253,7 @@
             // 
             // tBGroup
             // 
-            this.tBGroup.Location = new System.Drawing.Point(215, 106);
+            this.tBGroup.Location = new System.Drawing.Point(215, 161);
             this.tBGroup.Name = "tBGroup";
             this.tBGroup.Size = new System.Drawing.Size(235, 22);
             this.tBGroup.TabIndex = 12;
@@ -248,7 +262,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(47, 102);
+            this.label5.Location = new System.Drawing.Point(47, 157);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 25);
             this.label5.TabIndex = 11;
@@ -256,7 +270,7 @@
             // 
             // butNext
             // 
-            this.butNext.Location = new System.Drawing.Point(160, 169);
+            this.butNext.Location = new System.Drawing.Point(160, 224);
             this.butNext.Name = "butNext";
             this.butNext.Size = new System.Drawing.Size(142, 49);
             this.butNext.TabIndex = 13;
@@ -266,7 +280,7 @@
             // 
             // butLast
             // 
-            this.butLast.Location = new System.Drawing.Point(12, 224);
+            this.butLast.Location = new System.Drawing.Point(12, 279);
             this.butLast.Name = "butLast";
             this.butLast.Size = new System.Drawing.Size(142, 49);
             this.butLast.TabIndex = 14;
@@ -276,7 +290,7 @@
             // 
             // butPrevios
             // 
-            this.butPrevios.Location = new System.Drawing.Point(160, 224);
+            this.butPrevios.Location = new System.Drawing.Point(160, 279);
             this.butPrevios.Name = "butPrevios";
             this.butPrevios.Size = new System.Drawing.Size(142, 49);
             this.butPrevios.TabIndex = 15;
@@ -286,7 +300,7 @@
             // 
             // butAdd
             // 
-            this.butAdd.Location = new System.Drawing.Point(308, 169);
+            this.butAdd.Location = new System.Drawing.Point(308, 224);
             this.butAdd.Name = "butAdd";
             this.butAdd.Size = new System.Drawing.Size(142, 49);
             this.butAdd.TabIndex = 16;
@@ -296,7 +310,7 @@
             // 
             // butDel
             // 
-            this.butDel.Location = new System.Drawing.Point(308, 224);
+            this.butDel.Location = new System.Drawing.Point(308, 279);
             this.butDel.Name = "butDel";
             this.butDel.Size = new System.Drawing.Size(142, 49);
             this.butDel.TabIndex = 17;
@@ -306,7 +320,7 @@
             // 
             // butSave
             // 
-            this.butSave.Location = new System.Drawing.Point(160, 279);
+            this.butSave.Location = new System.Drawing.Point(160, 334);
             this.butSave.Name = "butSave";
             this.butSave.Size = new System.Drawing.Size(142, 49);
             this.butSave.TabIndex = 18;
@@ -314,21 +328,49 @@
             this.butSave.UseVisualStyleBackColor = true;
             this.butSave.Click += new System.EventHandler(this.butSave_Click);
             // 
-            // toolStripButton1
+            // tBMiddlName
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 28);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripSaveItem_Click);
+            this.tBMiddlName.Location = new System.Drawing.Point(215, 133);
+            this.tBMiddlName.Name = "tBMiddlName";
+            this.tBMiddlName.Size = new System.Drawing.Size(235, 22);
+            this.tBMiddlName.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(47, 129);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 25);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Отчество:";
+            // 
+            // tBName
+            // 
+            this.tBName.Location = new System.Drawing.Point(215, 106);
+            this.tBName.Name = "tBName";
+            this.tBName.Size = new System.Drawing.Size(235, 22);
+            this.tBName.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(47, 102);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 25);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Имя:";
             // 
             // TableStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 342);
+            this.ClientSize = new System.Drawing.Size(465, 390);
+            this.Controls.Add(this.tBName);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tBMiddlName);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.butSave);
             this.Controls.Add(this.butDel);
             this.Controls.Add(this.butAdd);
@@ -339,11 +381,12 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tBSpecial);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tBName);
+            this.Controls.Add(this.tBSecondName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.butFrist);
             this.Controls.Add(this.bNStudent);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "TableStudent";
             this.Text = "Таблица \"Студенты\"";
             ((System.ComponentModel.ISupportInitialize)(this.bNStudent)).EndInit();
@@ -371,7 +414,7 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.Button butFrist;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tBName;
+        private System.Windows.Forms.TextBox tBSecondName;
         private System.Windows.Forms.TextBox tBSpecial;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tBGroup;
@@ -383,5 +426,9 @@
         private System.Windows.Forms.Button butDel;
         private System.Windows.Forms.Button butSave;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.TextBox tBMiddlName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tBName;
+        private System.Windows.Forms.Label label6;
     }
 }
