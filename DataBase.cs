@@ -22,7 +22,7 @@ namespace BDApp
             return Table;
         }
 
-        public static void Connection(string command)
+        public static DataTable Connection(string command)
         {
             Table = new DataTable();
             connection = new OleDbConnection(connectionString);
@@ -60,6 +60,7 @@ namespace BDApp
 
             dataReader.Close();
             ConnectionClose();
+            return Table;
         }
 
         public static void DBCommand(OleDbCommand command)

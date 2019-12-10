@@ -16,5 +16,12 @@ namespace BDApp
         {
             InitializeComponent();
         }
+
+
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
