@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.butSort = new System.Windows.Forms.Button();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.lBFilters = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dGV = new System.Windows.Forms.DataGridView();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.butFiltr = new System.Windows.Forms.Button();
@@ -45,7 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -53,7 +53,7 @@
             this.groupBox1.Controls.Add(this.butSort);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.lBFilters);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(754, 48);
             this.groupBox1.Name = "groupBox1";
@@ -62,54 +62,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Сортировка:";
             // 
-            // label1
+            // butSort
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(354, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(363, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Таблица \"Студенты\" (Табличный вид)\r\n";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 48);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(746, 415);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Поле для сортировки:";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(9, 38);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(257, 276);
-            this.listBox1.TabIndex = 1;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(9, 320);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(217, 21);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Сортировка по возрастанию";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.butSort.Enabled = false;
+            this.butSort.Location = new System.Drawing.Point(9, 374);
+            this.butSort.Name = "butSort";
+            this.butSort.Size = new System.Drawing.Size(257, 31);
+            this.butSort.TabIndex = 4;
+            this.butSort.Text = "Сортировка";
+            this.butSort.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
@@ -122,15 +83,54 @@
             this.radioButton2.Text = "Сортировка по убыванию";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // butSort
+            // radioButton1
             // 
-            this.butSort.Enabled = false;
-            this.butSort.Location = new System.Drawing.Point(9, 374);
-            this.butSort.Name = "butSort";
-            this.butSort.Size = new System.Drawing.Size(257, 31);
-            this.butSort.TabIndex = 4;
-            this.butSort.Text = "Сортировка";
-            this.butSort.UseVisualStyleBackColor = true;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(9, 320);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(217, 21);
+            this.radioButton1.TabIndex = 2;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Сортировка по возрастанию";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // lBFilters
+            // 
+            this.lBFilters.FormattingEnabled = true;
+            this.lBFilters.ItemHeight = 16;
+            this.lBFilters.Location = new System.Drawing.Point(9, 38);
+            this.lBFilters.Name = "lBFilters";
+            this.lBFilters.Size = new System.Drawing.Size(257, 276);
+            this.lBFilters.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Поле для сортировки:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(354, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(363, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Таблица \"Студенты\" (Табличный вид)\r\n";
+            // 
+            // dGV
+            // 
+            this.dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGV.Location = new System.Drawing.Point(2, 48);
+            this.dGV.Name = "dGV";
+            this.dGV.RowHeadersWidth = 51;
+            this.dGV.RowTemplate.Height = 24;
+            this.dGV.Size = new System.Drawing.Size(746, 415);
+            this.dGV.TabIndex = 2;
             // 
             // comboBox1
             // 
@@ -216,14 +216,14 @@
             this.Controls.Add(this.butFiltr);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dGV);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Name = "TablesForm";
-            this.Text = "Табли";
+            this.Text = "Таблица \"Студенты\"";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,12 +233,12 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dGV;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button butSort;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lBFilters;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button butFiltr;
