@@ -44,12 +44,17 @@ namespace BDApp
 
                 if (table.TableName == "Specialty")
                 {
+                    cBSpetialty.DataSource = table;
                     foreach (DataRow row in table.Rows)
                     {
                         Specialtys.Add(row);
+                       
                     }
                 }
             }
+
+            cBSpetialty.ValueMember = "IDSpecial";
+            cBSpetialty.DisplayMember = "Specialty";
 
             bindingNavigatorCountItem.Text = string.Format("для {0}", rows.Count);
 
@@ -173,13 +178,12 @@ namespace BDApp
         private void Save()
             {
             System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, Name = @Name, MiddleName = @MiddleName, Group = @Group, IDSpecial=" +ids+ " WHERE IDStudent=@n",
+            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, IDSpecial=" +ids+ " WHERE IDStudent=@n",
             DataBase.connection);
             command.Parameters.AddWithValue("Family", tBSecondName.Text);
-            command.Parameters.AddWithValue("Name", tBName.Text);
-            command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
-            command.Parameters.AddWithValue("Group", tBGroup.Text); ;
             command.Parameters.AddWithValue("n", rows[nomber]["IDStudent"].ToString());
+            
+
             DataBase.DBCommand(command);
 
 
@@ -188,12 +192,14 @@ namespace BDApp
         private void AddChange()
             {
              System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("Insert Into Students (Family, Name, MiddleName, Group,gasdfg)"+
-                           "Values(@Family, @Name, @MiddleName, @Group,)", DataBase.connection);
+            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, Name = @Name, MiddleName = @MiddleName, Group = @Group, IDSpecial = @IDSpecial WHERE IDStudent = @IDStudent",
+            DataBase.connection);
             command.Parameters.AddWithValue("Family", tBSecondName.Text);
             command.Parameters.AddWithValue("Name", tBName.Text);
             command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
             command.Parameters.AddWithValue("Group", tBGroup.Text);
+            command.Parameters.AddWithValue("IDSpecial", cBSpetialty);
+
             DataBase.DBCommand(command);
             }
 

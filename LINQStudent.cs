@@ -16,7 +16,7 @@ namespace BDApp
         {
             InitializeComponent();
         }
-        string stringConnect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\jadeo\source\repos\DataBase\Database.mdb";
+        string stringConnect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\VS Project\BDApp\Database.mdb";
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
@@ -103,28 +103,50 @@ namespace BDApp
             Get_student get_Student = new Get_student();
             get_Student.get_table(stringConnect);
             //Уникальные ФИО
-            var studGroups = from s in get_Student.students group s by s.name.Substring(0,1);
-            dataGridView1.RowCount = (int)get_Student.students.Count;
-            dataGridView1.ColumnCount = 4;
+            var stedentDistinct = get_Student.students.Select(m => new { m.name, m.fam }).Distinct();
+            var studGroups = from s in stedentDistinct group s by s.name.Substring(0,1);
+            dataGridView1.RowCount = stedentDistinct.Count();
+            dataGridView1.ColumnCount = 3;
             dataGridView1.Columns[0].HeaderText = "Имя";
             dataGridView1.Columns[1].HeaderText = "Фамилия";
-            dataGridView1.Columns[2].HeaderText = "Средний балл";
-            dataGridView1.Columns[3].HeaderText = "Ключ";
+            dataGridView1.Columns[2].HeaderText = "Ключ";
             int i = 0;
             //Средние значения баллов
             foreach (var group_name in studGroups)
             {
                 
                 foreach (var ort in group_name)
-                {   dataGridView1.Rows[i].Cells[3].Value = group_name.Key;
+                {   dataGridView1.Rows[i].Cells[2].Value = group_name.Key;
                     dataGridView1.Rows[i].Cells[0].Value = ort.name;
                     dataGridView1.Rows[i].Cells[1].Value = ort.fam;
-                    dataGridView1.Rows[i].Cells[2].Value = ort.bull;
+                    
                     i++;
                 }
 
             }
             
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            Get_student get_Student = new Get_student();
+            get_Student.get_table(stringConnect);
+            //
+            var studGroups = from s in get_Student.students group s by s.name;
+            double[] delta = new double[studGroups.Count()];
+            int i = 0;
+            //
+            foreach (var group_name in studGroups)
+            {
+                delta[i] = 0;
+                foreach (var ort in group_name)
+                {
+                    delta[i] += ort.bull;
+                }
+                i++;
+            }
+            MessageBox.Show("Разница = "+Convert.ToString(delta.Max() - delta.Min()));
         }
     }
 }
