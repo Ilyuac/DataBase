@@ -44,12 +44,17 @@ namespace BDApp
 
                 if (table.TableName == "Specialty")
                 {
+                    cBSpetialty.DataSource = table;
                     foreach (DataRow row in table.Rows)
                     {
                         Specialtys.Add(row);
+                       
                     }
                 }
             }
+
+            cBSpetialty.ValueMember = "IDSpecial";
+            cBSpetialty.DisplayMember = "Specialty";
 
             bindingNavigatorCountItem.Text = string.Format("для {0}", rows.Count);
 
@@ -173,16 +178,11 @@ namespace BDApp
         private void Save()
             {
             System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, Name = @Name, MiddleName = @MiddleName, Group = @Group, IDSpecial=" +ids+ " WHERE IDStudent=@n",
+            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, IDSpecial=" +ids+ " WHERE IDStudent=@n",
             DataBase.connection);
             command.Parameters.AddWithValue("Family", tBSecondName.Text);
             command.Parameters.AddWithValue("n", rows[nomber]["IDStudent"].ToString());
-            System.Data.OleDb.OleDbCommand command1 =
-           new System.Data.OleDb.OleDbCommand("SELECT IDSpecial, Specialty FROM Specialty",
-           DataBase.connection);
-            cBSpetialty.DataSource = command1.ExecuteReader();
-            cBSpetialty.ValueMember = "IDSpecial";
-            cBSpetialty.DisplayMember = "Specialty";
+            
 
             DataBase.DBCommand(command);
 
