@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="DataBase.cs" />
     <Compile Include="Get_student.cs" />
+    <Compile Include="LINQStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LINQStudent.Designer.cs">
+      <DependentUpon>LINQStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     <Compile Include="TableSubject.Designer.cs">
       <DependentUpon>TableSubject.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="LINQStudent.resx">
+      <DependentUpon>LINQStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
