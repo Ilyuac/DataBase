@@ -40,5 +40,16 @@ namespace BDApp
             DataBase.DBCommand(command);
 
         }
+
+        private void Delete(object s, EventArgs e)
+        {
+            System.Data.OleDb.OleDbCommand command =
+            new System.Data.OleDb.OleDbCommand("DELTE FROM [Subjects] WHERE [SubjectsName]=@Sp",
+            DataBase.connection);
+            command.Parameters.AddWithValue("Sp", CBSpetial.Text);
+
+            DataBase.DBCommand(command);
+
+        }
     }
 }

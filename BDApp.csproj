@@ -61,6 +61,12 @@
     <Compile Include="TableSpetial.Designer.cs">
       <DependentUpon>TableSpetial.cs</DependentUpon>
     </Compile>
+    <Compile Include="TableStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableStudent.Designer.cs">
+      <DependentUpon>TableStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="TableSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     <EmbeddedResource Include="TableSpetial.resx">
       <DependentUpon>TableSpetial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TableStudent.resx">
+      <DependentUpon>TableStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TableSubject.resx">
       <DependentUpon>TableSubject.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +103,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TableStudent.cs.vsspell">
+      <DependentUpon>TableStudent.cs</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
