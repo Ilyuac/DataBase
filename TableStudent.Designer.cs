@@ -69,9 +69,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(131, 38);
+            this.label1.Location = new System.Drawing.Point(98, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 25);
+            this.label1.Size = new System.Drawing.Size(165, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Таблица \"Студенты\"";
             // 
@@ -101,7 +102,7 @@
             this.bNStudent.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bNStudent.Name = "bNStudent";
             this.bNStudent.PositionItem = this.bindingNavigatorPositionItem;
-            this.bNStudent.Size = new System.Drawing.Size(465, 27);
+            this.bNStudent.Size = new System.Drawing.Size(349, 27);
             this.bNStudent.TabIndex = 3;
             this.bNStudent.Text = "bNStudent";
             // 
@@ -111,14 +112,14 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(55, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 24);
             this.bindingNavigatorCountItem.Text = "для {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
             // 
@@ -128,7 +129,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorDeleteItem.Text = "Удалить";
             this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
@@ -138,7 +139,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Переместить в начало";
             this.bindingNavigatorMoveFirstItem.Click += new System.EventHandler(this.bindingNavigatorMoveFirstItem_Click);
             // 
@@ -148,7 +149,7 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Переместить назад";
             this.bindingNavigatorMovePreviousItem.Click += new System.EventHandler(this.bindingNavigatorMovePreviousItem_Click);
             // 
@@ -161,9 +162,8 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(38, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Текущее положение";
             // 
@@ -178,7 +178,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveNextItem.Text = "Переместить вперед";
             this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.bindingNavigatorMoveNextItem_Click);
             // 
@@ -188,7 +188,7 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorMoveLastItem.Text = "Переместить в конец";
             this.bindingNavigatorMoveLastItem.Click += new System.EventHandler(this.bindingNavigatorMoveLastItem_Click);
             // 
@@ -203,15 +203,16 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripSaveItem_Click);
             // 
             // butFrist
             // 
-            this.butFrist.Location = new System.Drawing.Point(12, 224);
+            this.butFrist.Location = new System.Drawing.Point(9, 182);
+            this.butFrist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.butFrist.Name = "butFrist";
-            this.butFrist.Size = new System.Drawing.Size(142, 49);
+            this.butFrist.Size = new System.Drawing.Size(106, 40);
             this.butFrist.TabIndex = 4;
             this.butFrist.Text = "Перейди к первой записи";
             this.butFrist.UseVisualStyleBackColor = true;
@@ -221,51 +222,57 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(35, 74);
+            this.label2.Location = new System.Drawing.Point(26, 60);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 25);
+            this.label2.Size = new System.Drawing.Size(85, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Фамилия:";
             // 
             // tBSecondName
             // 
-            this.tBSecondName.Location = new System.Drawing.Point(215, 78);
+            this.tBSecondName.Location = new System.Drawing.Point(161, 63);
+            this.tBSecondName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tBSecondName.Name = "tBSecondName";
-            this.tBSecondName.Size = new System.Drawing.Size(235, 22);
+            this.tBSecondName.Size = new System.Drawing.Size(177, 20);
             this.tBSecondName.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(35, 186);
+            this.label4.Location = new System.Drawing.Point(26, 151);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 25);
+            this.label4.Size = new System.Drawing.Size(132, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Специальность:";
             // 
             // tBGroup
             // 
-            this.tBGroup.Location = new System.Drawing.Point(215, 161);
+            this.tBGroup.Location = new System.Drawing.Point(161, 131);
+            this.tBGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tBGroup.Name = "tBGroup";
-            this.tBGroup.Size = new System.Drawing.Size(235, 22);
+            this.tBGroup.Size = new System.Drawing.Size(177, 20);
             this.tBGroup.TabIndex = 12;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(35, 157);
+            this.label5.Location = new System.Drawing.Point(26, 128);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 25);
+            this.label5.Size = new System.Drawing.Size(69, 20);
             this.label5.TabIndex = 11;
             this.label5.Text = "Группа: ";
             // 
             // butNext
             // 
-            this.butNext.Location = new System.Drawing.Point(160, 224);
+            this.butNext.Location = new System.Drawing.Point(120, 182);
+            this.butNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.butNext.Name = "butNext";
-            this.butNext.Size = new System.Drawing.Size(142, 49);
+            this.butNext.Size = new System.Drawing.Size(106, 40);
             this.butNext.TabIndex = 13;
             this.butNext.Text = "Перейди к следующей записи";
             this.butNext.UseVisualStyleBackColor = true;
@@ -273,9 +280,10 @@
             // 
             // butLast
             // 
-            this.butLast.Location = new System.Drawing.Point(12, 279);
+            this.butLast.Location = new System.Drawing.Point(9, 227);
+            this.butLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.butLast.Name = "butLast";
-            this.butLast.Size = new System.Drawing.Size(142, 49);
+            this.butLast.Size = new System.Drawing.Size(106, 40);
             this.butLast.TabIndex = 14;
             this.butLast.Text = "Перейди к последней записи";
             this.butLast.UseVisualStyleBackColor = true;
@@ -283,9 +291,10 @@
             // 
             // butPrevios
             // 
-            this.butPrevios.Location = new System.Drawing.Point(160, 279);
+            this.butPrevios.Location = new System.Drawing.Point(120, 227);
+            this.butPrevios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.butPrevios.Name = "butPrevios";
-            this.butPrevios.Size = new System.Drawing.Size(142, 49);
+            this.butPrevios.Size = new System.Drawing.Size(106, 40);
             this.butPrevios.TabIndex = 15;
             this.butPrevios.Text = "Перейди к прошлой записи";
             this.butPrevios.UseVisualStyleBackColor = true;
@@ -293,9 +302,10 @@
             // 
             // butAdd
             // 
-            this.butAdd.Location = new System.Drawing.Point(308, 224);
+            this.butAdd.Location = new System.Drawing.Point(231, 182);
+            this.butAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.butAdd.Name = "butAdd";
-            this.butAdd.Size = new System.Drawing.Size(142, 49);
+            this.butAdd.Size = new System.Drawing.Size(106, 40);
             this.butAdd.TabIndex = 16;
             this.butAdd.Text = "Добавить запись";
             this.butAdd.UseVisualStyleBackColor = true;
@@ -303,9 +313,10 @@
             // 
             // butDel
             // 
-            this.butDel.Location = new System.Drawing.Point(308, 279);
+            this.butDel.Location = new System.Drawing.Point(231, 227);
+            this.butDel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.butDel.Name = "butDel";
-            this.butDel.Size = new System.Drawing.Size(142, 49);
+            this.butDel.Size = new System.Drawing.Size(106, 40);
             this.butDel.TabIndex = 17;
             this.butDel.Text = "Удплить запись";
             this.butDel.UseVisualStyleBackColor = true;
@@ -313,9 +324,10 @@
             // 
             // butSave
             // 
-            this.butSave.Location = new System.Drawing.Point(160, 334);
+            this.butSave.Location = new System.Drawing.Point(120, 271);
+            this.butSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.butSave.Name = "butSave";
-            this.butSave.Size = new System.Drawing.Size(142, 49);
+            this.butSave.Size = new System.Drawing.Size(106, 40);
             this.butSave.TabIndex = 18;
             this.butSave.Text = "Сохранить запись";
             this.butSave.UseVisualStyleBackColor = true;
@@ -323,51 +335,57 @@
             // 
             // tBMiddlName
             // 
-            this.tBMiddlName.Location = new System.Drawing.Point(215, 133);
+            this.tBMiddlName.Location = new System.Drawing.Point(161, 108);
+            this.tBMiddlName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tBMiddlName.Name = "tBMiddlName";
-            this.tBMiddlName.Size = new System.Drawing.Size(235, 22);
+            this.tBMiddlName.Size = new System.Drawing.Size(177, 20);
             this.tBMiddlName.TabIndex = 20;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(35, 132);
+            this.label3.Location = new System.Drawing.Point(26, 107);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 25);
+            this.label3.Size = new System.Drawing.Size(87, 20);
             this.label3.TabIndex = 19;
             this.label3.Text = "Отчество:";
             // 
             // tBName
             // 
-            this.tBName.Location = new System.Drawing.Point(215, 106);
+            this.tBName.Location = new System.Drawing.Point(161, 86);
+            this.tBName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tBName.Name = "tBName";
-            this.tBName.Size = new System.Drawing.Size(235, 22);
+            this.tBName.Size = new System.Drawing.Size(177, 20);
             this.tBName.TabIndex = 22;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(35, 102);
+            this.label6.Location = new System.Drawing.Point(26, 83);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 25);
+            this.label6.Size = new System.Drawing.Size(44, 20);
             this.label6.TabIndex = 21;
             this.label6.Text = "Имя:";
             // 
             // cBSpetialty
             // 
             this.cBSpetialty.FormattingEnabled = true;
-            this.cBSpetialty.Location = new System.Drawing.Point(215, 189);
+            this.cBSpetialty.Location = new System.Drawing.Point(161, 154);
+            this.cBSpetialty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cBSpetialty.Name = "cBSpetialty";
-            this.cBSpetialty.Size = new System.Drawing.Size(235, 24);
+            this.cBSpetialty.Size = new System.Drawing.Size(177, 21);
             this.cBSpetialty.TabIndex = 23;
+            this.cBSpetialty.SelectedIndexChanged += new System.EventHandler(this.CBSpetialty_SelectedIndexChanged);
             // 
             // TableStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 390);
+            this.ClientSize = new System.Drawing.Size(349, 317);
             this.Controls.Add(this.cBSpetialty);
             this.Controls.Add(this.tBName);
             this.Controls.Add(this.label6);
@@ -387,6 +405,7 @@
             this.Controls.Add(this.butFrist);
             this.Controls.Add(this.bNStudent);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "TableStudent";
             this.Text = "Таблица \"Студенты\"";

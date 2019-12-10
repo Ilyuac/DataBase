@@ -15,6 +15,7 @@ namespace BDApp
         List<DataRow> rows = new List<DataRow>();
         List<DataRow> Specialtys = new List<DataRow>();
         int nomber = 0;
+        string ids;
         public TableStudent()
         {
             InitializeComponent();
@@ -172,14 +173,16 @@ namespace BDApp
         private void Save()
             {
             System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, Name = @Name, MiddleName = @MiddleName, Group = @Group, IDSpecial=" + + " WHERE IDStudent=@n",
+            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, Name = @Name, MiddleName = @MiddleName, Group = @Group, IDSpecial=" +ids+ " WHERE IDStudent=@n",
             DataBase.connection);
             command.Parameters.AddWithValue("Family", tBSecondName.Text);
             command.Parameters.AddWithValue("n", rows[nomber]["IDStudent"].ToString());
-            //command.Parameters.AddWithValue("Name", tBName.Text);
-            //command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
-            //command.Parameters.AddWithValue("Group", tBGroup.Text);
-            //command.Parameters.AddWithValue("IDSpecial", tBSpecial);
+            System.Data.OleDb.OleDbCommand command1 =
+           new System.Data.OleDb.OleDbCommand("SELECT IDSpecial, Specialty FROM Specialty",
+           DataBase.connection);
+            cBSpetialty.DataSource = command1.ExecuteReader();
+            cBSpetialty.ValueMember = "IDSpecial";
+            cBSpetialty.DisplayMember = "Specialty";
 
             DataBase.DBCommand(command);
 
@@ -219,6 +222,11 @@ namespace BDApp
                 bindingNavigatorMovePreviousItem.Enabled = false;
                 butPrevios.Enabled = false;
             }
+        }
+
+        private void CBSpetialty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ids = cBSpetialty.SelectedValue.ToString();
         }
     }
 }
