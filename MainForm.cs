@@ -56,5 +56,11 @@ namespace BDApp
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LINQStudent student = new LINQStudent();
+            student.Show();
+        }
     }
 }
