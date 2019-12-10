@@ -195,7 +195,7 @@ namespace BDApp
         private void AddChange()
             {
              System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("INSERT INTO [Students] ([Family], [Name], [MiddleName], [Group], [IDSpecial]) VALUES (@Family, @Name, @MiddleName, @Group, IDSpecial="+ids,
+            new System.Data.OleDb.OleDbCommand("INSERT INTO [Students] ([Family], [Name], [MiddleName], [Group], [IDSpecial]) VALUES (@Family, @Name, @MiddleName, @Group, IDSpecial=" + ids,
             DataBase.connection);
             command.Parameters.AddWithValue("Family", tBSecondName.Text);
             command.Parameters.AddWithValue("Name", tBName.Text);
