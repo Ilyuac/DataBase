@@ -47,7 +47,6 @@
             this.butFrist = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tBSecondName = new System.Windows.Forms.TextBox();
-            this.tBSpecial = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tBGroup = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,6 +60,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tBName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.cBSpetialty = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.bNStudent)).BeginInit();
             this.bNStudent.SuspendLayout();
             this.SuspendLayout();
@@ -234,13 +234,6 @@
             this.tBSecondName.Size = new System.Drawing.Size(235, 22);
             this.tBSecondName.TabIndex = 6;
             // 
-            // tBSpecial
-            // 
-            this.tBSpecial.Location = new System.Drawing.Point(215, 189);
-            this.tBSpecial.Name = "tBSpecial";
-            this.tBSpecial.Size = new System.Drawing.Size(235, 22);
-            this.tBSpecial.TabIndex = 10;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -362,11 +355,20 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "Имя:";
             // 
+            // cBSpetialty
+            // 
+            this.cBSpetialty.FormattingEnabled = true;
+            this.cBSpetialty.Location = new System.Drawing.Point(215, 189);
+            this.cBSpetialty.Name = "cBSpetialty";
+            this.cBSpetialty.Size = new System.Drawing.Size(235, 24);
+            this.cBSpetialty.TabIndex = 23;
+            // 
             // TableStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 390);
+            this.Controls.Add(this.cBSpetialty);
             this.Controls.Add(this.tBName);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tBMiddlName);
@@ -379,7 +381,6 @@
             this.Controls.Add(this.butNext);
             this.Controls.Add(this.tBGroup);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.tBSpecial);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tBSecondName);
             this.Controls.Add(this.label2);
@@ -415,7 +416,6 @@
         private System.Windows.Forms.Button butFrist;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tBSecondName;
-        private System.Windows.Forms.TextBox tBSpecial;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tBGroup;
         private System.Windows.Forms.Label label5;
@@ -430,5 +430,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tBName;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cBSpetialty;
     }
 }
