@@ -172,15 +172,18 @@ namespace BDApp
         private void Save()
             {
             System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family, Name = @Name, MiddleName = @MiddleName, Group = @Group, IDSpecial = @IDSpecial WHERE IDStudent = @IDStudent",
+            new System.Data.OleDb.OleDbCommand("UPDATE Students SET Family = @Family WHERE IDStudent=@n",
             DataBase.connection);
             command.Parameters.AddWithValue("Family", tBSecondName.Text);
-            command.Parameters.AddWithValue("Name", tBName.Text);
-            command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
-            command.Parameters.AddWithValue("Group", tBGroup.Text);
-            command.Parameters.AddWithValue("IDSpecial", tBSpecial);
+            command.Parameters.AddWithValue("n", rows[nomber]["IDStudent"].ToString());
+            //command.Parameters.AddWithValue("Name", tBName.Text);
+            //command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
+            //command.Parameters.AddWithValue("Group", tBGroup.Text);
+            //command.Parameters.AddWithValue("IDSpecial", tBSpecial);
 
             DataBase.DBCommand(command);
+
+
             }
 
         private void AddChange()
