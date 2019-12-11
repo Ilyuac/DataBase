@@ -201,8 +201,34 @@ namespace BDApp
 
         private void button7_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            
+
+            //Уникальные ФИО
+            var stedentDistinct = get_Student.students.Select(m => new { m.name, m.fam, m.name_subject,m.bull }).Distinct();
+            var studGroups = from s in stedentDistinct group s by s.fam;
+            dataGridView1.RowCount = stedentDistinct.Count();
+            dataGridView1.ColumnCount = 4;
+            dataGridView1.Columns[0].HeaderText = "Имя";
+            dataGridView1.Columns[1].HeaderText = "Фамилия";
+            dataGridView1.Columns[2].HeaderText = "Ключ";
+            dataGridView1.Columns[3].HeaderText = "Бал";
+            int i = 0;
+            //Средние значения баллов
+            foreach (var group_name in studGroups)
+            {
+                var row = (group_name.Select(s => s.bull)).Max();
+                
+                foreach (var ort in group_name)
+                {
+                    
+                    dataGridView1.Rows[i].Cells[2].Value = ort.name_subject;
+                    dataGridView1.Rows[i].Cells[0].Value = ort.name;
+                    dataGridView1.Rows[i].Cells[1].Value = ort.fam;
+                    dataGridView1.Rows[i].Cells[3].Value = row;
+
+                    i++;
+                }
+
+            }
 
             //
 
