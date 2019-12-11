@@ -238,5 +238,10 @@ namespace BDApp
         {
             ids = cBSpetialty.SelectedValue.ToString();
         }
+
+        private void TableStudent_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

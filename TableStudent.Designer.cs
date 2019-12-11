@@ -162,6 +162,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(38, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -210,7 +211,7 @@
             // butFrist
             // 
             this.butFrist.Location = new System.Drawing.Point(9, 182);
-            this.butFrist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.butFrist.Margin = new System.Windows.Forms.Padding(2);
             this.butFrist.Name = "butFrist";
             this.butFrist.Size = new System.Drawing.Size(106, 40);
             this.butFrist.TabIndex = 4;
@@ -232,7 +233,7 @@
             // tBSecondName
             // 
             this.tBSecondName.Location = new System.Drawing.Point(161, 63);
-            this.tBSecondName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBSecondName.Margin = new System.Windows.Forms.Padding(2);
             this.tBSecondName.Name = "tBSecondName";
             this.tBSecondName.Size = new System.Drawing.Size(177, 20);
             this.tBSecondName.TabIndex = 6;
@@ -251,7 +252,7 @@
             // tBGroup
             // 
             this.tBGroup.Location = new System.Drawing.Point(161, 131);
-            this.tBGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBGroup.Margin = new System.Windows.Forms.Padding(2);
             this.tBGroup.Name = "tBGroup";
             this.tBGroup.Size = new System.Drawing.Size(177, 20);
             this.tBGroup.TabIndex = 12;
@@ -270,7 +271,7 @@
             // butNext
             // 
             this.butNext.Location = new System.Drawing.Point(120, 182);
-            this.butNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.butNext.Margin = new System.Windows.Forms.Padding(2);
             this.butNext.Name = "butNext";
             this.butNext.Size = new System.Drawing.Size(106, 40);
             this.butNext.TabIndex = 13;
@@ -281,7 +282,7 @@
             // butLast
             // 
             this.butLast.Location = new System.Drawing.Point(9, 227);
-            this.butLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.butLast.Margin = new System.Windows.Forms.Padding(2);
             this.butLast.Name = "butLast";
             this.butLast.Size = new System.Drawing.Size(106, 40);
             this.butLast.TabIndex = 14;
@@ -292,7 +293,7 @@
             // butPrevios
             // 
             this.butPrevios.Location = new System.Drawing.Point(120, 227);
-            this.butPrevios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.butPrevios.Margin = new System.Windows.Forms.Padding(2);
             this.butPrevios.Name = "butPrevios";
             this.butPrevios.Size = new System.Drawing.Size(106, 40);
             this.butPrevios.TabIndex = 15;
@@ -303,7 +304,7 @@
             // butAdd
             // 
             this.butAdd.Location = new System.Drawing.Point(231, 182);
-            this.butAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.butAdd.Margin = new System.Windows.Forms.Padding(2);
             this.butAdd.Name = "butAdd";
             this.butAdd.Size = new System.Drawing.Size(106, 40);
             this.butAdd.TabIndex = 16;
@@ -314,7 +315,7 @@
             // butDel
             // 
             this.butDel.Location = new System.Drawing.Point(231, 227);
-            this.butDel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.butDel.Margin = new System.Windows.Forms.Padding(2);
             this.butDel.Name = "butDel";
             this.butDel.Size = new System.Drawing.Size(106, 40);
             this.butDel.TabIndex = 17;
@@ -325,7 +326,7 @@
             // butSave
             // 
             this.butSave.Location = new System.Drawing.Point(120, 271);
-            this.butSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.butSave.Margin = new System.Windows.Forms.Padding(2);
             this.butSave.Name = "butSave";
             this.butSave.Size = new System.Drawing.Size(106, 40);
             this.butSave.TabIndex = 18;
@@ -336,7 +337,7 @@
             // tBMiddlName
             // 
             this.tBMiddlName.Location = new System.Drawing.Point(161, 108);
-            this.tBMiddlName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBMiddlName.Margin = new System.Windows.Forms.Padding(2);
             this.tBMiddlName.Name = "tBMiddlName";
             this.tBMiddlName.Size = new System.Drawing.Size(177, 20);
             this.tBMiddlName.TabIndex = 20;
@@ -355,7 +356,7 @@
             // tBName
             // 
             this.tBName.Location = new System.Drawing.Point(161, 86);
-            this.tBName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tBName.Margin = new System.Windows.Forms.Padding(2);
             this.tBName.Name = "tBName";
             this.tBName.Size = new System.Drawing.Size(177, 20);
             this.tBName.TabIndex = 22;
@@ -375,7 +376,7 @@
             // 
             this.cBSpetialty.FormattingEnabled = true;
             this.cBSpetialty.Location = new System.Drawing.Point(161, 154);
-            this.cBSpetialty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cBSpetialty.Margin = new System.Windows.Forms.Padding(2);
             this.cBSpetialty.Name = "cBSpetialty";
             this.cBSpetialty.Size = new System.Drawing.Size(177, 21);
             this.cBSpetialty.TabIndex = 23;
@@ -405,10 +406,11 @@
             this.Controls.Add(this.butFrist);
             this.Controls.Add(this.bNStudent);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "TableStudent";
             this.Text = "Таблица \"Студенты\"";
+            this.Load += new System.EventHandler(this.TableStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bNStudent)).EndInit();
             this.bNStudent.ResumeLayout(false);
             this.bNStudent.PerformLayout();
