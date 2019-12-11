@@ -22,13 +22,19 @@ namespace BDApp
             InitializeComponent();
             dGV.Rows.Clear();
             //dGV.ColumnCount = 5;
-            lBFilters.Items.Add(dGV.Columns.Add("Family", "Фамилия" ));
-            lBFilters.Items.Add(dGV.Columns.Add("Name", "Имя"));
-            lBFilters.Items.Add(dGV.Columns.Add("middle", "Отчество"));
-            lBFilters.Items.Add(dGV.Columns.Add("Group", "Группа"));
-            lBFilters.Items.Add(dGV.Columns.Add("Special", "Специальность"));
+            dGV.Columns.Add("Family", "Фамилия");
+            lBFilters.Items.Add(dGV.Columns["Family"].HeaderCell.Value.ToString());
+            dGV.Columns.Add("Name", "Имя");
+            lBFilters.Items.Add(dGV.Columns["Name"].HeaderCell.Value.ToString());
+            dGV.Columns.Add("middle", "Отчество");
+            lBFilters.Items.Add(dGV.Columns["middle"].HeaderCell.Value.ToString());
+            dGV.Columns.Add("Group", "Группа");
+            lBFilters.Items.Add(dGV.Columns["Group"].HeaderCell.Value.ToString());
+            dGV.Columns.Add("Special", "Специальность");
+            lBFilters.Items.Add(dGV.Columns["Special"].HeaderCell.Value.ToString());
 
-            
+
+
                     foreach (DataRow row in table1.Rows)
                     {
                         dGV.Rows.Add(row);
@@ -45,14 +51,23 @@ namespace BDApp
 
         public void Search()
         {
-            System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("",
-            DataBase.connection);
+            DataGridViewColumn Col = ReturnColumn();
+
+
         }
 
         private void butSort_Click(object sender, EventArgs e)
         {
+            DataGridViewColumn Col = ReturnColumn();
 
+            if (radioButton1.Checked)
+                dGV.Sort(Col, System.ComponentModel.ListSortDirection.Ascending);
+            else
+                dGV.Sort(Col, System.ComponentModel.ListSortDirection.Descending);
+        }
+
+        private DataGridViewColumn ReturnColumn()
+        {
             System.Windows.Forms.DataGridViewColumn Col = dGV.Columns[lBFilters.SelectedIndex];
             switch (lBFilters.SelectedIndex)
             {
@@ -72,12 +87,8 @@ namespace BDApp
                     Col = dGV.Columns[lBFilters.SelectedIndex];
                     break;
             }
-            if (radioButton1.Checked)
-                dGV.Sort(Col, System.ComponentModel.ListSortDirection.Ascending);
-            else
-                dGV.Sort(Col, System.ComponentModel.ListSortDirection.Descending);
 
-            
+            return Col;
         }
     }
 }
