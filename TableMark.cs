@@ -70,12 +70,13 @@ namespace BDApp
         private void UpdateData(int index)
         {
             string command = "UPDATE Tables SET Mark=@mark, IDSubject=" +
-                "(SELECT IDSubject FROM Subjects WHERE SubjectName=@name)";
+                "(SELECT IDSubject FROM Subjects WHERE SubjectName=@name), " +
+                "IDStudent=(SELECT IDStudent FROM Students WHERE Family=@stname)";
             OleDbCommand commandUp = new OleDbCommand(command);
 
             commandUp.Parameters.AddWithValue("mark", dGV.Rows[index].Cells["Оценка"].Value);
             commandUp.Parameters.AddWithValue("name", dGV.Rows[index].Cells["Предмет"].Value);
-
+            commandUp.Parameters.AddWithValue("stname", dGV.Rows[index].Cells["Фамилия"].Value);
         }
 
         private void butSave_Click(object sender, EventArgs e)
