@@ -63,9 +63,7 @@ namespace BDApp
 
         private void butTables_Click(object sender, EventArgs e)
         {
-            TablesForm tables = new TablesForm();
-            UPdate();
-            tables.Show();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
