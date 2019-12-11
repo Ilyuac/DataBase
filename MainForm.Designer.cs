@@ -86,14 +86,14 @@
             this.butMark.Name = "butMark";
             this.butMark.Size = new System.Drawing.Size(259, 60);
             this.butMark.TabIndex = 4;
-            this.butMark.Text = "Табличная форма";
+            this.butMark.Text = "Таблица \"Оценки\"";
             this.butMark.UseVisualStyleBackColor = true;
-            this.butMark.Click += new System.EventHandler(this.butTables_Click);
+            this.butMark.Click += new System.EventHandler(this.butMark_Click);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(52, 327);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(259, 60);
             this.button1.TabIndex = 5;

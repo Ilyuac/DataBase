@@ -72,5 +72,10 @@ namespace BDApp
             UPdate();
             student.Show();
         }
+
+        private void butMark_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
