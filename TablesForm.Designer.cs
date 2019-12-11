@@ -36,10 +36,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dGV = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cBFamily = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.butFiltr = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.butShowAll = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,6 +64,7 @@
             // 
             // butSort
             // 
+            this.butSort.Enabled = false;
             this.butSort.Location = new System.Drawing.Point(9, 374);
             this.butSort.Name = "butSort";
             this.butSort.Size = new System.Drawing.Size(257, 31);
@@ -102,6 +103,7 @@
             this.lBFilters.Name = "lBFilters";
             this.lBFilters.Size = new System.Drawing.Size(257, 276);
             this.lBFilters.TabIndex = 1;
+            this.lBFilters.SelectedIndexChanged += new System.EventHandler(this.lBFilters_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -131,14 +133,15 @@
             this.dGV.RowTemplate.Height = 24;
             this.dGV.Size = new System.Drawing.Size(746, 415);
             this.dGV.TabIndex = 2;
+            this.dGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_CellContentClick);
             // 
-            // comboBox1
+            // cBFamily
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(144, 476);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(613, 24);
-            this.comboBox1.TabIndex = 3;
+            this.cBFamily.FormattingEnabled = true;
+            this.cBFamily.Location = new System.Drawing.Point(144, 476);
+            this.cBFamily.Name = "cBFamily";
+            this.cBFamily.Size = new System.Drawing.Size(613, 24);
+            this.cBFamily.TabIndex = 3;
             // 
             // textBox1
             // 
@@ -155,15 +158,17 @@
             this.butFiltr.TabIndex = 5;
             this.butFiltr.Text = "Фильтровать";
             this.butFiltr.UseVisualStyleBackColor = true;
+            this.butFiltr.Click += new System.EventHandler(this.butFiltr_Click);
             // 
-            // button6
+            // butShowAll
             // 
-            this.button6.Location = new System.Drawing.Point(905, 469);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(115, 31);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "Показать все";
-            this.button6.UseVisualStyleBackColor = true;
+            this.butShowAll.Location = new System.Drawing.Point(905, 469);
+            this.butShowAll.Name = "butShowAll";
+            this.butShowAll.Size = new System.Drawing.Size(115, 31);
+            this.butShowAll.TabIndex = 9;
+            this.butShowAll.Text = "Показать все";
+            this.butShowAll.UseVisualStyleBackColor = true;
+            this.butShowAll.Click += new System.EventHandler(this.butShowAll_Click);
             // 
             // button3
             // 
@@ -212,10 +217,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.butShowAll);
             this.Controls.Add(this.butFiltr);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cBFamily);
             this.Controls.Add(this.dGV);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -239,10 +244,10 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.ListBox lBFilters;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cBFamily;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button butFiltr;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button butShowAll;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;

@@ -13,47 +13,41 @@ namespace BDApp
     public partial class TablesForm : Form
     {
         DataTable table1 = new DataTable();
+        BindingSource source = new BindingSource();
+
         public TablesForm()
         {
-            int i=0;
             table1.Clear();
             table1 = DataBase.SelectCommand("SELECT Students.Family, Students.Name, Students.MiddleName, Students.[Group], Specialty.Specialty " +
                 "FROM Students, Specialty WHERE Students.IDSpecial = Specialty.IDSpecial");
             InitializeComponent();
             dGV.Rows.Clear();
-            //dGV.ColumnCount = 5;
-            dGV.Columns.Add("Family", "Фамилия");
-            lBFilters.Items.Add(dGV.Columns["Family"].HeaderCell.Value.ToString());
-            dGV.Columns.Add("Name", "Имя");
-            lBFilters.Items.Add(dGV.Columns["Name"].HeaderCell.Value.ToString());
-            dGV.Columns.Add("middle", "Отчество");
-            lBFilters.Items.Add(dGV.Columns["middle"].HeaderCell.Value.ToString());
-            dGV.Columns.Add("Group", "Группа");
-            lBFilters.Items.Add(dGV.Columns["Group"].HeaderCell.Value.ToString());
-            dGV.Columns.Add("Special", "Специальность");
-            lBFilters.Items.Add(dGV.Columns["Special"].HeaderCell.Value.ToString());
 
+            table1.Columns[0].ColumnName = "Фамилия";
+            table1.Columns[1].ColumnName = "Имя";
+            table1.Columns[2].ColumnName = "Отчество";
+            table1.Columns[3].ColumnName = "Группа";
+            table1.Columns[4].ColumnName= "Специальность";
 
+            dGV.DataSource = table1;
+            source.DataSource = table1;
 
-                    foreach (DataRow row in table1.Rows)
-                    {
-                        dGV.Rows.Add(row);
-                        dGV.Rows[i].Cells[0].Value = row[0];
-                        dGV.Rows[i].Cells[1].Value = row[1];
-                        dGV.Rows[i].Cells[2].Value = row[2];
-                        dGV.Rows[i].Cells[3].Value = row[3];
-                        dGV.Rows[i].Cells[4].Value = row[4];
-                        i++;
-                    }
+            foreach(DataGridViewColumn column in dGV.Columns)
+            {
+                lBFilters.Items.Add(column.Name);
+            }
+
+            cBFamily.DataSource = dGV.DataSource;
+            cBFamily.DisplayMember = "Фамилия";
 
             radioButton1.Checked = true;
         }
 
         public void Search()
         {
-            DataGridViewColumn Col = ReturnColumn();
+            //DataGridViewColumn Col = ReturnColumn();
 
-
+            
         }
 
         private void butSort_Click(object sender, EventArgs e)
@@ -68,7 +62,7 @@ namespace BDApp
 
         private DataGridViewColumn ReturnColumn()
         {
-            System.Windows.Forms.DataGridViewColumn Col = dGV.Columns[lBFilters.SelectedIndex];
+            System.Windows.Forms.DataGridViewColumn Col = dGV.Columns[0];
             switch (lBFilters.SelectedIndex)
             {
                 case 0:
@@ -89,6 +83,26 @@ namespace BDApp
             }
 
             return Col;
+        }
+
+        private void dGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void butFiltr_Click(object sender, EventArgs e)
+        {
+            source.Filter = "Фамилия='" + cBFamily.Text + "'";
+        }
+
+        private void lBFilters_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            butSort.Enabled = true;
+        }
+
+        private void butShowAll_Click(object sender, EventArgs e)
+        {
+            source.Filter = "";
         }
     }
 }
