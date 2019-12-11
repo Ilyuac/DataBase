@@ -11,5 +11,7 @@ namespace BDApp
       public string name { get; set; }
       public string fam { get; set; }
       public int bull { get; set; }
+
+      public string name_subject { get; set; }
     }
 }

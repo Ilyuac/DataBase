@@ -16,27 +16,31 @@ namespace BDApp
         {
             InitializeComponent();
         }
-        string stringConnect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\VS Project\BDApp\Database.mdb";
+        Get_student get_Student = new Get_student();
+        Get_student get_predmet = new Get_student();
+        string stringConnect = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\jadeo\source\repos\DataBase\Database.mdb";
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
 
 
-            Get_student get_Student = new Get_student();
-            get_Student.get_table(stringConnect);
+            
+            
             var otlichkic = from s in get_Student.students where s.bull == 5 select s;
             dataGridView1.RowCount = (int)otlichkic.Count();
-            dataGridView1.ColumnCount = 3;
+            dataGridView1.ColumnCount = 4;
 
             dataGridView1.Columns[0].HeaderText = "Имя";
             dataGridView1.Columns[1].HeaderText = "Фамилия";
             dataGridView1.Columns[2].HeaderText = "Бал";
+            dataGridView1.Columns[3].HeaderText = "Предмет";
             int i = 0;
             foreach(Student student in otlichkic)
             {
                 dataGridView1.Rows[i].Cells[0].Value = student.name;
                 dataGridView1.Rows[i].Cells[1].Value = student.fam;
                 dataGridView1.Rows[i].Cells[2].Value = student.bull;
+                dataGridView1.Rows[i].Cells[3].Value = student.name_subject;
                 i++;
             }
 
@@ -46,8 +50,8 @@ namespace BDApp
         private void button2_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            Get_student get_Student = new Get_student();
-            get_Student.get_table(stringConnect);
+            
+            
             //Уникальные ФИО
             var stedentDistinct = get_Student.students.Select(m => new { m.name, m.fam }).Distinct();
 
@@ -56,14 +60,16 @@ namespace BDApp
             dataGridView1.Columns[0].HeaderText = "Имя";
             dataGridView1.Columns[1].HeaderText = "Фамилия";
             dataGridView1.Columns[2].HeaderText = "Средний балл";
+            
             int i = 0;
             //Средние значения баллов
             foreach (var FIO in stedentDistinct)
             {
-                double otlichkic = get_Student.students.Where(s => s.name ==FIO.name && s.fam == FIO.fam).Average(p => p.bull);
+                double otlichkic = Math.Round( get_Student.students.Where(s => s.name ==FIO.name && s.fam == FIO.fam).Average(p => p.bull),1);
                 dataGridView1.Rows[i].Cells[0].Value = FIO.name;
                 dataGridView1.Rows[i].Cells[1].Value = FIO.fam;
                 dataGridView1.Rows[i].Cells[2].Value = otlichkic;
+                
                 i++;
 
             }
@@ -72,8 +78,8 @@ namespace BDApp
         private void button3_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            Get_student get_Student = new Get_student();
-            get_Student.get_table(stringConnect);
+            
+            
             //Уникальные ФИО
             var stedentDistinct = get_Student.students.Select(m => new { m.name, m.fam }).Distinct();
 
@@ -100,8 +106,7 @@ namespace BDApp
         private void button4_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            Get_student get_Student = new Get_student();
-            get_Student.get_table(stringConnect);
+            
             //Уникальные ФИО
             var stedentDistinct = get_Student.students.Select(m => new { m.name, m.fam }).Distinct();
             var studGroups = from s in stedentDistinct group s by s.name.Substring(0,1);
@@ -130,8 +135,8 @@ namespace BDApp
         private void button5_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            Get_student get_Student = new Get_student();
-            get_Student.get_table(stringConnect);
+            
+            
             //
             var studGroups = from s in get_Student.students group s by s.name;
             double[] delta = new double[studGroups.Count()];
@@ -147,6 +152,60 @@ namespace BDApp
                 i++;
             }
             MessageBox.Show("Разница = "+Convert.ToString(delta.Max() - delta.Min()));
+        }
+
+        private void LINQStudent_Load(object sender, EventArgs e)
+        {
+            get_Student.get_table();
+            get_predmet.get_predmet();
+            dataGridView1.Rows.Clear();
+         
+            for (int i = 0; i < get_predmet.subjects.Count(); i++)
+                comboBox1.Items.Add(get_predmet.subjects[i]);
+         
+            var stedentDistinct = get_Student.students.Select(m => new { m.name, m.fam }).Distinct();
+           foreach(var name in stedentDistinct)
+                comboBox2.Items.Add(name.fam);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+
+            
+            get_Student.students.Add(new Student
+            { name= (from s in get_Student.students where s.fam == comboBox2.Text select s.name).ElementAt(0),
+                fam = Convert.ToString(comboBox2.Text),
+
+                bull = Convert.ToInt32(textBox1.Text),
+                name_subject = Convert.ToString(comboBox1.Text)
+            });
+
+            dataGridView1.ColumnCount = 4;
+            dataGridView1.RowCount = get_Student.students.Count();
+            dataGridView1.Columns[0].HeaderText = "Имя";
+            dataGridView1.Columns[1].HeaderText = "Фамилия";
+            dataGridView1.Columns[2].HeaderText = "Бал";
+            dataGridView1.Columns[3].HeaderText = "Предмет";
+            int i = 0;
+            foreach (Student student in get_Student.students)
+            {
+                dataGridView1.Rows[i].Cells[0].Value = student.name;
+                dataGridView1.Rows[i].Cells[1].Value = student.fam;
+                dataGridView1.Rows[i].Cells[2].Value = student.bull;
+                dataGridView1.Rows[i].Cells[3].Value = student.name_subject;
+                i++;
+            }
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            
+
+            //
+
         }
     }
 }
