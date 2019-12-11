@@ -71,6 +71,7 @@ namespace BDApp
         private void butMark_Click(object sender, EventArgs e)
         {
             TableMark mark = new TableMark();
+            UPdate();
             mark.Show();
         }
     }

@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.sC = new System.Windows.Forms.SplitContainer();
-            this.cBFamaly = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cBFamily = new System.Windows.Forms.ComboBox();
             this.dGV = new System.Windows.Forms.DataGridView();
+            this.butSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sC)).BeginInit();
             this.sC.Panel1.SuspendLayout();
             this.sC.Panel2.SuspendLayout();
@@ -48,24 +49,16 @@
             // 
             // sC.Panel1
             // 
+            this.sC.Panel1.Controls.Add(this.butSave);
             this.sC.Panel1.Controls.Add(this.label1);
-            this.sC.Panel1.Controls.Add(this.cBFamaly);
+            this.sC.Panel1.Controls.Add(this.cBFamily);
             // 
             // sC.Panel2
             // 
             this.sC.Panel2.Controls.Add(this.dGV);
-            this.sC.Size = new System.Drawing.Size(506, 526);
-            this.sC.SplitterDistance = 47;
+            this.sC.Size = new System.Drawing.Size(506, 522);
+            this.sC.SplitterDistance = 46;
             this.sC.TabIndex = 0;
-            // 
-            // cBFamaly
-            // 
-            this.cBFamaly.FormattingEnabled = true;
-            this.cBFamaly.Location = new System.Drawing.Point(127, 15);
-            this.cBFamaly.Name = "cBFamaly";
-            this.cBFamaly.Size = new System.Drawing.Size(369, 24);
-            this.cBFamaly.TabIndex = 0;
-            this.cBFamaly.SelectedIndexChanged += new System.EventHandler(this.cBFamaly_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -77,6 +70,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Фамилия:";
             // 
+            // cBFamily
+            // 
+            this.cBFamily.FormattingEnabled = true;
+            this.cBFamily.Location = new System.Drawing.Point(127, 15);
+            this.cBFamily.Name = "cBFamily";
+            this.cBFamily.Size = new System.Drawing.Size(266, 24);
+            this.cBFamily.TabIndex = 0;
+            this.cBFamily.SelectedIndexChanged += new System.EventHandler(this.cBFamaly_SelectedIndexChanged);
+            // 
             // dGV
             // 
             this.dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -85,14 +87,24 @@
             this.dGV.Name = "dGV";
             this.dGV.RowHeadersWidth = 51;
             this.dGV.RowTemplate.Height = 24;
-            this.dGV.Size = new System.Drawing.Size(506, 475);
+            this.dGV.Size = new System.Drawing.Size(506, 472);
             this.dGV.TabIndex = 0;
+            // 
+            // butSave
+            // 
+            this.butSave.Location = new System.Drawing.Point(406, 15);
+            this.butSave.Name = "butSave";
+            this.butSave.Size = new System.Drawing.Size(94, 23);
+            this.butSave.TabIndex = 2;
+            this.butSave.Text = "Сохранить";
+            this.butSave.UseVisualStyleBackColor = true;
+            this.butSave.Click += new System.EventHandler(this.butSave_Click);
             // 
             // TableMark
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 526);
+            this.ClientSize = new System.Drawing.Size(506, 522);
             this.Controls.Add(this.sC);
             this.MaximizeBox = false;
             this.Name = "TableMark";
@@ -110,8 +122,9 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer sC;
-        private System.Windows.Forms.ComboBox cBFamaly;
+        private System.Windows.Forms.ComboBox cBFamily;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dGV;
+        private System.Windows.Forms.Button butSave;
     }
 }

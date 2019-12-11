@@ -14,13 +14,14 @@ namespace BDApp
     public partial class TableMark : Form
     {
         DataTable table = new DataTable();
-        BindingSource source = new BindingSource();
 
         public TableMark()
         {
             InitializeComponent();
 
             LoadForm();
+
+            cBFamily.SelectedIndex = 0;
         }
 
         private void LoadForm()
@@ -36,23 +37,51 @@ namespace BDApp
 
             DataTable table1 = DataBase.SelectCommand("SELECT Family FROM Students");
 
-            cBFamaly.DataSource = table1;
-            cBFamaly.DisplayMember = "Family";
+            cBFamily.DataSource = table1;
+            cBFamily.DisplayMember = "Family";
 
-            dGV.DataSource = table;
-            dGV.Columns["Фамилия"].Visible = false;
-            source.DataSource = dGV.DataSource;
+            dGV.Columns.Add("Фамилия", "Фамилия");
+            dGV.Columns[0].Visible = false;
+            DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
+            comboBoxColumn.Name = "Предмет";
+            comboBoxColumn.DataSource = DataBase.SelectCommand("SELECT * FROM Subjects");
+            comboBoxColumn.DisplayMember = "SubjectName";
+            comboBoxColumn.ValueMember = "IDSubject";
+            dGV.Columns.Add(comboBoxColumn);
+            dGV.Columns.Add("Оценка", "Оценка");
+            dGV.ShowCellErrors = false;
+            dGV.DataError += new DataGridViewDataErrorEventHandler(Error);
+
+                foreach (DataRow row in table.Rows)
+                {
+                    dGV.Rows.Add(row.ItemArray);
+                }
         }
+
+        private void Error(object s,DataGridViewDataErrorEventArgs e) { }
 
         private void cBFamaly_SelectedIndexChanged(object sender, EventArgs e)
         {
-            source.Filter = "Фамилия='" + cBFamaly.Text + "'";
+            for (int i = 0; i < dGV.Rows.Count - 1; i++)
+                dGV.Rows[i].Visible = dGV[0, i].Value.ToString() == cBFamily.Text;
+
         }
 
-        private void UpdateData()
+        private void UpdateData(int index)
         {
-            string command = "";
+            string command = "UPDATE Tables SET Mark=@mark, IDSubject=" +
+                "(SELECT IDSubject FROM Subjects WHERE SubjectName=@name)";
             OleDbCommand commandUp = new OleDbCommand(command);
+
+            commandUp.Parameters.AddWithValue("mark", dGV.Rows[index].Cells["Оценка"].Value);
+            commandUp.Parameters.AddWithValue("name", dGV.Rows[index].Cells["Предмет"].Value);
+
+        }
+
+        private void butSave_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dGV.Rows.Count; i++)
+                UpdateData(i);
         }
     }
 }
