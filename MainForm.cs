@@ -61,11 +61,6 @@ namespace BDApp
             student.Show();
         }
 
-        private void butTables_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             LINQStudent student = new LINQStudent();
@@ -75,7 +70,8 @@ namespace BDApp
 
         private void butMark_Click(object sender, EventArgs e)
         {
-
+            TableMark mark = new TableMark();
+            mark.Show();
         }
     }
 }

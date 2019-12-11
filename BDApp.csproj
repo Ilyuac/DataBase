@@ -63,6 +63,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
+    <Compile Include="TableMark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableMark.Designer.cs">
+      <DependentUpon>TableMark.cs</DependentUpon>
+    </Compile>
     <Compile Include="TablesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TableMark.resx">
+      <DependentUpon>TableMark.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TablesForm.resx">
       <DependentUpon>TablesForm.cs</DependentUpon>
     </EmbeddedResource>
