@@ -40,8 +40,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.butFiltr = new System.Windows.Forms.Button();
             this.butShowAll = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.butClose = new System.Windows.Forms.Button();
+            this.butSeartch = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -170,23 +170,25 @@
             this.butShowAll.UseVisualStyleBackColor = true;
             this.butShowAll.Click += new System.EventHandler(this.butShowAll_Click);
             // 
-            // button3
+            // butClose
             // 
-            this.button3.Location = new System.Drawing.Point(905, 509);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(115, 31);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Закрыть";
-            this.button3.UseVisualStyleBackColor = true;
+            this.butClose.Location = new System.Drawing.Point(905, 509);
+            this.butClose.Name = "butClose";
+            this.butClose.Size = new System.Drawing.Size(115, 31);
+            this.butClose.TabIndex = 11;
+            this.butClose.Text = "Закрыть";
+            this.butClose.UseVisualStyleBackColor = true;
+            this.butClose.Click += new System.EventHandler(this.butClose_Click);
             // 
-            // button4
+            // butSeartch
             // 
-            this.button4.Location = new System.Drawing.Point(769, 511);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(130, 31);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Найти";
-            this.button4.UseVisualStyleBackColor = true;
+            this.butSeartch.Location = new System.Drawing.Point(769, 511);
+            this.butSeartch.Name = "butSeartch";
+            this.butSeartch.Size = new System.Drawing.Size(130, 31);
+            this.butSeartch.TabIndex = 10;
+            this.butSeartch.Text = "Найти";
+            this.butSeartch.UseVisualStyleBackColor = true;
+            this.butSeartch.Click += new System.EventHandler(this.butSeartch_Click);
             // 
             // label3
             // 
@@ -215,8 +217,8 @@
             this.ClientSize = new System.Drawing.Size(1037, 546);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.butClose);
+            this.Controls.Add(this.butSeartch);
             this.Controls.Add(this.butShowAll);
             this.Controls.Add(this.butFiltr);
             this.Controls.Add(this.textBox1);
@@ -248,8 +250,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button butFiltr;
         private System.Windows.Forms.Button butShowAll;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button butClose;
+        private System.Windows.Forms.Button butSeartch;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
     }

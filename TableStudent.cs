@@ -86,14 +86,14 @@ namespace BDApp
 
         private void butFrist_Click(object sender, EventArgs e)
         {
-            nomber = 0;
+            nomber = 1;
             LoadInfo(nomber);
         }
 
         private void butLast_Click(object sender, EventArgs e)
         {
-            nomber = rows.Count - 1;
-            LoadInfo(nomber);
+            nomber = rows.Count - 2;
+            Next();
         }
 
         private void butNext_Click(object sender, EventArgs e)
@@ -123,8 +123,8 @@ namespace BDApp
 
         private void bindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
         {
-            nomber = 0;
-            LoadInfo(nomber);
+            nomber = 1;
+            Previos();
         }
 
         private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
@@ -139,8 +139,8 @@ namespace BDApp
 
         private void bindingNavigatorMoveLastItem_Click(object sender, EventArgs e)
         {
-            nomber = rows.Count;
-            LoadInfo(nomber);
+            nomber = rows.Count-2;
+            Next();
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -215,7 +215,7 @@ namespace BDApp
 
         private void Previos()
         {
-            if (nomber >= 0)
+            if (nomber > 0)
             {
                 nomber--;
 
@@ -237,6 +237,13 @@ namespace BDApp
         private void CBSpetialty_SelectedIndexChanged(object sender, EventArgs e)
         {
             ids = cBSpetialty.SelectedValue.ToString();
+        }
+
+        private void butTable_Click(object sender, EventArgs e)
+        {
+
+            TablesForm tables = new TablesForm();
+            tables.Show();
         }
     }
 }

@@ -43,13 +43,6 @@ namespace BDApp
             radioButton1.Checked = true;
         }
 
-        public void Search()
-        {
-            //DataGridViewColumn Col = ReturnColumn();
-
-            
-        }
-
         private void butSort_Click(object sender, EventArgs e)
         {
             DataGridViewColumn Col = ReturnColumn();
@@ -103,6 +96,28 @@ namespace BDApp
         private void butShowAll_Click(object sender, EventArgs e)
         {
             source.Filter = "";
+        }
+
+        private void butClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void butSeartch_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dGV.ColumnCount; i++)
+                for (int j = 0; j < dGV.RowCount; j++)
+                {
+                    dGV[i, j].Style.BackColor = Color.White;
+                    dGV[i, j].Style.ForeColor = Color.Black;
+                }
+            for (int i = 0; i < dGV.ColumnCount; i++)
+                for (int j = 0; j < dGV.RowCount - 1; j++)
+                    if (dGV[i, j].Value.ToString().Contains(textBox1.Text))
+                    {
+                        dGV[i, j].Style.BackColor = Color.AliceBlue;
+                        dGV[i, j].Style.ForeColor = Color.Blue;
+                    }
         }
     }
 }
