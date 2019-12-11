@@ -64,13 +64,13 @@
             // 
             // butSort
             // 
-            this.butSort.Enabled = false;
             this.butSort.Location = new System.Drawing.Point(9, 374);
             this.butSort.Name = "butSort";
             this.butSort.Size = new System.Drawing.Size(257, 31);
             this.butSort.TabIndex = 4;
             this.butSort.Text = "Сортировка";
             this.butSort.UseVisualStyleBackColor = true;
+            this.butSort.Click += new System.EventHandler(this.butSort_Click);
             // 
             // radioButton2
             // 
