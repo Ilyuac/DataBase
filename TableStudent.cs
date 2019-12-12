@@ -12,14 +12,14 @@ namespace BDApp
 {
     public partial class TableStudent : Form
     {
+        
         List<DataRow> rows = new List<DataRow>();
         List<DataRow> Specialtys = new List<DataRow>();
         int nomber = 0;
-        string ids;
+        string ids="";
         public TableStudent()
         {
-            InitializeComponent();
-
+            InitializeComponent(); 
             bindingNavigatorDeleteItem.Enabled = true;
             bindingNavigatorAddNewItem.Enabled = true;
 
@@ -59,6 +59,7 @@ namespace BDApp
             bindingNavigatorCountItem.Text = string.Format("для {0}", rows.Count);
 
             LoadInfo(nomber);
+            
         }
 
         private void LoadInfo(int i)
@@ -73,8 +74,10 @@ namespace BDApp
             foreach(DataRow specialty in Specialtys)
             {
                 if (specialty["IDSpecial"].ToString() == rows[i]["IDSpecial"].ToString())
-                {
+                {                    
                     cBSpetialty.Text = specialty["Specialty"].ToString();
+                    ids = cBSpetialty.SelectedValue.ToString();
+
                 }
             }
         }
@@ -193,7 +196,7 @@ namespace BDApp
             }
 
         private void AddChange()
-        { //, [Group], [IDSpecial]  , @Group, IDSpecial="+ids  , [Name], [MiddleName]   , @Name, @MiddleName
+        { 
             System.Data.OleDb.OleDbCommand command =
             new System.Data.OleDb.OleDbCommand("INSERT INTO Students ([Family], [Name], [MiddleName], [Group], [IDSpecial]) VALUES (@Family, @Name, @MiddleName, @Group, "+ids+")",
             DataBase.connection);
@@ -237,6 +240,7 @@ namespace BDApp
         private void CBSpetialty_SelectedIndexChanged(object sender, EventArgs e)
         {
             ids = cBSpetialty.SelectedValue.ToString();
+          // cBSpetialty.Text = ids;
         }
 
         private void butTable_Click(object sender, EventArgs e)

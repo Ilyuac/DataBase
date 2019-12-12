@@ -8,7 +8,7 @@ namespace BDApp
 {
     public abstract class DataBase
     {
-        public static string connectionString = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\VS Project\BDApp\Database.mdb";
+        public static string connectionString = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\maksi\source\repos\DataBase\Database.mdb";
         public static OleDbConnection connection;
         static OleDbCommand dbCommand;
         static OleDbDataReader dataReader;
