@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BDApp
 {
@@ -12,7 +9,9 @@ namespace BDApp
     {
         public List<Student> students = new List<Student>();
         public List<string> subjects= new List<string>();
-        public string connectionString = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\jadeo\source\repos\DataBase\Database.mdb";
+
+        public string connectionString = DataBase.connectionString;
+            //@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\jadeo\source\repos\DataBase\Database.mdb";
         public void get_table()
         {
             DataTable Table = new DataTable();

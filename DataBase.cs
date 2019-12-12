@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace BDApp
 {
     public abstract class DataBase
     {
-        static string connectionString = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\VS Project\BDApp\Database.mdb";
+        public static string connectionString = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\VS Project\BDApp\Database.mdb";
         public static OleDbConnection connection;
         static OleDbCommand dbCommand;
         static OleDbDataReader dataReader;
