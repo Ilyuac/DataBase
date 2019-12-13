@@ -47,7 +47,7 @@ namespace BDApp
             }
         }
 
-        private void Add()
+        private void Add()//Добавление
         {
             System.Data.OleDb.OleDbCommand command = 
             new System.Data.OleDb.OleDbCommand("INSERT INTO [Specialty] ([Specialty], [Info]) VALUES (@Sp, @Inf)", 
@@ -59,7 +59,7 @@ namespace BDApp
 
         }
 
-        private void Delete()
+        private void Delete()//удаление
         {
             System.Data.OleDb.OleDbCommand command =
             new System.Data.OleDb.OleDbCommand("DELETE FROM [Specialty] WHERE [IDSpecial]=@Sp",
@@ -72,7 +72,7 @@ namespace BDApp
 
         }
 
-        private void UPdate()
+        private void UPdate()//Обновление
         {
             string str = "";
             for (int i = 0; i < rows.Count; i++)
