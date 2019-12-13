@@ -13,6 +13,8 @@ namespace BDApp
     public partial class TableSubject : Form
     {
         List<DataRow> rows = new List<DataRow>();
+        string localcopy="";
+
         public TableSubject()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace BDApp
 
         private void load()
         {
+            CBSpetial.Items.Clear();
             DataBase.UPdate();
             foreach (DataTable table in DataBase.Tables)
             {
@@ -62,12 +65,14 @@ namespace BDApp
 
         private void UPdate()
         {
-            System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("UPDATE [Subjects] SET  SubjectName =@sp WHERE IDSubject =@idSp",
-            DataBase.connection);
+            string str="";
             foreach (DataRow row in rows)
-                if (row["SubjectName"].ToString() == CBSpetial.Text)
-                    command.Parameters.AddWithValue("idSp", row["IDSpecial"].ToString());
+                if (row["SubjectName"].ToString() == localcopy)
+                   str = row["IDSubject"].ToString();
+            System.Data.OleDb.OleDbCommand command =
+            new System.Data.OleDb.OleDbCommand("UPDATE Subjects SET SubjectName = @sp WHERE(Subjects.IDSubject = "+str+")",
+            DataBase.connection);
+            
             command.Parameters.AddWithValue("sp", CBSpetial.Text);
 
             DataBase.DBCommand(command);
@@ -77,13 +82,14 @@ namespace BDApp
         private void butAdd_Click(object sender, EventArgs e)
         {
             Add();
-            MessageBox.Show("Оценка добавлена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Предмет добавлен.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
             load();
         }
 
         private void butSave_Click(object sender, EventArgs e)
         {
             UPdate();
+            //Add();
             MessageBox.Show("Сохранение прошло успешно.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
             load();
         }
@@ -93,6 +99,16 @@ namespace BDApp
             Delete();
             MessageBox.Show("Запись удалена!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
             load();
+        }
+
+        private void CBSpetial_TextUpdate(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CBSpetial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            localcopy = CBSpetial.Text;
         }
     }
 }

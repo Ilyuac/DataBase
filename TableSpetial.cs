@@ -13,6 +13,7 @@ namespace BDApp
     public partial class TableSpetial : Form
     {
         List<DataRow> rows = new List<DataRow>();
+        string localcopy = "";
 
         public TableSpetial()
         {
@@ -73,18 +74,19 @@ namespace BDApp
 
         private void UPdate()
         {
-            System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("UPDATE Specialty SET Specialty.Specialty = @sp, Specialty.Info = @Inf " +
-            "WHERE(((Specialty.IDSpecial) = @id))",
-            DataBase.connection);
+            string str = "";
             for (int i = 0; i < rows.Count; i++)
             {
-                if (rows[i]["Specialty"].ToString() == CBSpetial.Text)
+                if (rows[i]["Specialty"].ToString() == localcopy)
                 {
-                    command.Parameters.AddWithValue("id", rows[i]["Specialty"].ToString());
+                    str= rows[i]["IDSpecial"].ToString();
                 }
             }
+            System.Data.OleDb.OleDbCommand command =
+            new System.Data.OleDb.OleDbCommand("UPDATE Specialty SET Specialty =@sp, Info =@Inf WHERE(Specialty.IDSpecial ="+str+")",
+            DataBase.connection);
 
+            
             command.Parameters.AddWithValue("sp", CBSpetial.Text);
             command.Parameters.AddWithValue("Inf", TBInfo.Text);
 
@@ -95,6 +97,7 @@ namespace BDApp
         private void butSave_Click(object sender, EventArgs e)
         {
             UPdate();
+            //Add();
             MessageBox.Show("Сохранение прошло успешно.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadInfo(sender,e);
         }
@@ -102,7 +105,7 @@ namespace BDApp
         private void butAdd_Click(object sender, EventArgs e)
         {
             Add();
-            MessageBox.Show("Оценка добавлена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Специальность добавлена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadInfo(sender, e);
         }
 
@@ -111,6 +114,11 @@ namespace BDApp
             Delete();
             MessageBox.Show("Запись удалена!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadInfo(sender, e);
+        }
+
+        private void CBSpetial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            localcopy = CBSpetial.Text;
         }
     }
 }

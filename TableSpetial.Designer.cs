@@ -46,6 +46,7 @@
             this.CBSpetial.Name = "CBSpetial";
             this.CBSpetial.Size = new System.Drawing.Size(220, 24);
             this.CBSpetial.TabIndex = 0;
+            this.CBSpetial.SelectedIndexChanged += new System.EventHandler(this.CBSpetial_SelectedIndexChanged);
             // 
             // label1
             // 
