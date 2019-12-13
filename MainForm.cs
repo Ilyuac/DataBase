@@ -35,36 +35,36 @@ namespace BDApp
 
         private void butSpetial_Click(object sender, EventArgs e)
         {
-            TableSpetial spetial = new TableSpetial();
             UPdate();
+            TableSpetial spetial = new TableSpetial();
             spetial.Show();
         }
 
         private void butSubject_Click(object sender, EventArgs e)
         {
-            TableSubject subject = new TableSubject();
             UPdate();
+            TableSubject subject = new TableSubject();
             subject.Show();
         }
 
         private void butStud_Click(object sender, EventArgs e)
         {
-            TableStudent student = new TableStudent();
             UPdate();
+            TableStudent student = new TableStudent();
             student.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LINQStudent student = new LINQStudent();
             UPdate();
+            LINQStudent student = new LINQStudent();
             student.Show();
         }
 
         private void butMark_Click(object sender, EventArgs e)
         {
-            TableMark mark = new TableMark();
             UPdate();
+            TableMark mark = new TableMark();
             mark.Show();
         }
     }

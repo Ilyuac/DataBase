@@ -186,7 +186,6 @@ namespace BDApp
             command.Parameters.AddWithValue("Group", tBGroup.Text);
             command.Parameters.AddWithValue("n", rows[nomber]["IDStudent"].ToString());
             
-
             DataBase.DBCommand(command);
 
 
@@ -202,6 +201,8 @@ namespace BDApp
             command.Parameters.AddWithValue("MiddleName", tBMiddlName.Text);
             command.Parameters.AddWithValue("Group", tBGroup.Text);
             DataBase.DBCommand(command);
+
+
             }
 
         private void Delete()
