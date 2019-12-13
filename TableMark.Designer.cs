@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.sC = new System.Windows.Forms.SplitContainer();
+            this.butDelet = new System.Windows.Forms.Button();
+            this.butAdd = new System.Windows.Forms.Button();
+            this.butSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cBFamily = new System.Windows.Forms.ComboBox();
             this.dGV = new System.Windows.Forms.DataGridView();
-            this.butSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sC)).BeginInit();
             this.sC.Panel1.SuspendLayout();
             this.sC.Panel2.SuspendLayout();
@@ -49,6 +51,8 @@
             // 
             // sC.Panel1
             // 
+            this.sC.Panel1.Controls.Add(this.butDelet);
+            this.sC.Panel1.Controls.Add(this.butAdd);
             this.sC.Panel1.Controls.Add(this.butSave);
             this.sC.Panel1.Controls.Add(this.label1);
             this.sC.Panel1.Controls.Add(this.cBFamily);
@@ -56,9 +60,39 @@
             // sC.Panel2
             // 
             this.sC.Panel2.Controls.Add(this.dGV);
-            this.sC.Size = new System.Drawing.Size(506, 522);
+            this.sC.Size = new System.Drawing.Size(554, 522);
             this.sC.SplitterDistance = 46;
             this.sC.TabIndex = 0;
+            // 
+            // butDelet
+            // 
+            this.butDelet.Location = new System.Drawing.Point(448, 16);
+            this.butDelet.Name = "butDelet";
+            this.butDelet.Size = new System.Drawing.Size(94, 23);
+            this.butDelet.TabIndex = 4;
+            this.butDelet.Text = "Удалить";
+            this.butDelet.UseVisualStyleBackColor = true;
+            this.butDelet.Click += new System.EventHandler(this.butDelet_Click);
+            // 
+            // butAdd
+            // 
+            this.butAdd.Location = new System.Drawing.Point(348, 16);
+            this.butAdd.Name = "butAdd";
+            this.butAdd.Size = new System.Drawing.Size(94, 23);
+            this.butAdd.TabIndex = 3;
+            this.butAdd.Text = "Добавить";
+            this.butAdd.UseVisualStyleBackColor = true;
+            this.butAdd.Click += new System.EventHandler(this.butAdd_Click);
+            // 
+            // butSave
+            // 
+            this.butSave.Location = new System.Drawing.Point(248, 16);
+            this.butSave.Name = "butSave";
+            this.butSave.Size = new System.Drawing.Size(94, 23);
+            this.butSave.TabIndex = 2;
+            this.butSave.Text = "Сохранить";
+            this.butSave.UseVisualStyleBackColor = true;
+            this.butSave.Click += new System.EventHandler(this.butSave_Click);
             // 
             // label1
             // 
@@ -75,36 +109,28 @@
             this.cBFamily.FormattingEnabled = true;
             this.cBFamily.Location = new System.Drawing.Point(127, 15);
             this.cBFamily.Name = "cBFamily";
-            this.cBFamily.Size = new System.Drawing.Size(266, 24);
+            this.cBFamily.Size = new System.Drawing.Size(115, 24);
             this.cBFamily.TabIndex = 0;
             this.cBFamily.SelectedIndexChanged += new System.EventHandler(this.cBFamaly_SelectedIndexChanged);
             // 
             // dGV
             // 
+            this.dGV.AllowUserToAddRows = false;
             this.dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dGV.Location = new System.Drawing.Point(0, 0);
             this.dGV.Name = "dGV";
             this.dGV.RowHeadersWidth = 51;
             this.dGV.RowTemplate.Height = 24;
-            this.dGV.Size = new System.Drawing.Size(506, 472);
+            this.dGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGV.Size = new System.Drawing.Size(554, 472);
             this.dGV.TabIndex = 0;
-            // 
-            // butSave
-            // 
-            this.butSave.Location = new System.Drawing.Point(406, 15);
-            this.butSave.Name = "butSave";
-            this.butSave.Size = new System.Drawing.Size(94, 23);
-            this.butSave.TabIndex = 2;
-            this.butSave.Text = "Сохранить";
-            this.butSave.UseVisualStyleBackColor = true;
-            this.butSave.Click += new System.EventHandler(this.butSave_Click);
             // 
             // TableMark
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 522);
+            this.ClientSize = new System.Drawing.Size(554, 522);
             this.Controls.Add(this.sC);
             this.MaximizeBox = false;
             this.Name = "TableMark";
@@ -126,5 +152,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dGV;
         private System.Windows.Forms.Button butSave;
+        private System.Windows.Forms.Button butDelet;
+        private System.Windows.Forms.Button butAdd;
     }
 }

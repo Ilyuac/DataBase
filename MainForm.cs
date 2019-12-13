@@ -21,49 +21,42 @@ namespace BDApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            UPdate();
+            DataBase.UPdate();
         }
 
-        public void UPdate()
-        {
-            DataBase.Tables.Clear();
-            DataBase.Connection("SELECT * FROM Specialty");
-            DataBase.Connection("SELECT * FROM Students");
-            DataBase.Connection("SELECT * FROM Subjects");
-            DataBase.Connection("SELECT * FROM Tables");
-        }
+        
 
         private void butSpetial_Click(object sender, EventArgs e)
         {
-            UPdate();
+            DataBase.UPdate();
             TableSpetial spetial = new TableSpetial();
             spetial.Show();
         }
 
         private void butSubject_Click(object sender, EventArgs e)
         {
-            UPdate();
+            DataBase.UPdate();
             TableSubject subject = new TableSubject();
             subject.Show();
         }
 
         private void butStud_Click(object sender, EventArgs e)
         {
-            UPdate();
+            DataBase.UPdate();
             TableStudent student = new TableStudent();
             student.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UPdate();
+            DataBase.UPdate();
             LINQStudent student = new LINQStudent();
             student.Show();
         }
 
         private void butMark_Click(object sender, EventArgs e)
         {
-            UPdate();
+            DataBase.UPdate();
             TableMark mark = new TableMark();
             mark.Show();
         }

@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddMark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMark.Designer.cs">
+      <DependentUpon>AddMark.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBase.cs" />
     <Compile Include="Get_student.cs" />
     <Compile Include="LINQStudent.cs">
@@ -93,6 +99,9 @@
     <Compile Include="TableSubject.Designer.cs">
       <DependentUpon>TableSubject.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddMark.resx">
+      <DependentUpon>AddMark.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LINQStudent.resx">
       <DependentUpon>LINQStudent.cs</DependentUpon>
     </EmbeddedResource>

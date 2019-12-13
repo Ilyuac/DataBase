@@ -9,19 +9,24 @@ namespace BDApp
     {
         DataTable table = new DataTable();
         DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
+        DataView viewStudents = new DataView();
+        DataView viewSudjects = new DataView();
+        int nom = 0;
 
         public TableMark()
         {
             InitializeComponent();
 
-            LoadForm();
-
-            cBFamily.SelectedIndex = 1;
-            cBFamily.SelectedIndex = 0;
+            LoadForm(0);
         }
 
-        private void LoadForm()
+        private void LoadForm(int nom)
         {
+            dGV.Rows.Clear();
+            dGV.Columns.Clear();
+            DataBase.UPdate();
+
+
             string command = "SELECT Students.Family, Subjects.SubjectName, Tables.Mark " +
                 "FROM((Students INNER JOIN Tables ON Students.IDStudent = Tables.IDStudent)" +
                 " INNER JOIN Subjects ON Tables.IDSubject = Subjects.IDSubject)";
@@ -31,16 +36,16 @@ namespace BDApp
             table.Columns[1].ColumnName = "Предмет";
             table.Columns[2].ColumnName = "Оценка";
 
-            DataTable table1 = DataBase.SelectCommand("SELECT * FROM Students");
-
-            cBFamily.DataSource = table1;
+            viewStudents = DataBase.SelectCommand("SELECT * FROM Students").DefaultView;
+            cBFamily.DataSource = viewStudents;
             cBFamily.DisplayMember = "Family";
             cBFamily.ValueMember = "IDStudent";
 
             dGV.Columns.Add("Фамилия", "Фамилия");
             dGV.Columns[0].Visible = false;
             comboBoxColumn.Name = "Предмет";
-            comboBoxColumn.DataSource = DataBase.SelectCommand("SELECT * FROM Subjects");
+            viewSudjects= DataBase.SelectCommand("SELECT * FROM Subjects").DefaultView;
+            comboBoxColumn.DataSource = viewSudjects;
             comboBoxColumn.DisplayMember = "SubjectName";
             comboBoxColumn.ValueMember = "IDSubject";
             dGV.Columns.Add(comboBoxColumn);
@@ -52,6 +57,11 @@ namespace BDApp
                 {
                     dGV.Rows.Add(row.ItemArray);
                 }
+
+
+
+            cBFamily.SelectedIndex = 1;
+            cBFamily.SelectedIndex = nom;
         }
 
         private void Error(object s,DataGridViewDataErrorEventArgs e) { }
@@ -59,7 +69,13 @@ namespace BDApp
         private void cBFamaly_SelectedIndexChanged(object sender, EventArgs e)
         {
             for (int i = 0; i < dGV.Rows.Count - 1; i++)
+            {
                 dGV.Rows[i].Visible = dGV[0, i].Value.ToString() == cBFamily.Text;
+            }
+
+            for (int i = 0; i < viewStudents.Table.Rows.Count; i++)
+                if (viewStudents.Table.Rows[i]["Family"].ToString() == cBFamily.Text)
+                    nom = i;
 
         }
 
@@ -67,36 +83,28 @@ namespace BDApp
         {
             if (dGV.Rows[index].Cells["Фамилия"].Value != null)
             {
-                string commandStr = "UPDATE Tables SET Mark='@mark', IDSubject='@sub', IDStudent='@stud'";
+                string commandStr = "UPDATE Tables SET Mark=@mark WHERE IDSubject=@sub and IDStudent=@stud";
                 OleDbCommand command = new OleDbCommand(commandStr,DataBase.connection);
 
                 command.Parameters.AddWithValue("mark", dGV.Rows[index].Cells["Оценка"].Value.ToString());
-                int n = ((DataGridViewComboBoxCell)dGV.Rows[index].Cells["Предмет"]).Items.IndexOf(
-                            ((DataGridViewComboBoxCell)dGV.Rows[index].Cells["Предмет"]).Value.ToString())+2;
-                command.Parameters.AddWithValue("sub", n);
-                command.Parameters.AddWithValue("stud", cBFamily.SelectedItem.ToString()) ;
+
+                var id = "";
+                foreach (DataRow row in viewStudents.Table.Rows)
+                    if (cBFamily.Text == row["Family"].ToString())
+                    {
+                        id = row["IDStudent"].ToString();
+                    }
+                var idSub = "";
+                foreach (DataRow row in viewSudjects.Table.Rows)
+                    if (row["SubjectName"].ToString() == dGV.Rows[dGV.CurrentRow.Index].Cells["Предмет"].Value.ToString())
+                    {
+                        idSub = row["IDSubject"].ToString();
+                    }
+                command.Parameters.AddWithValue("sub", idSub);
+                command.Parameters.AddWithValue("stud", id);
 
                 DataBase.DBCommand(command);
             }
-            //else
-            //{
-            //    if (dGV.Rows[index].Cells["Оценка"].Value != null && dGV.Rows[index].Cells["Предмет"].Value!= null)
-            //    {
-            //        string commandStr = "INSERT INTO Tables ([Mark], [IDSubject], [IDStudent])" +
-            //        "VALUES (@mark,(SELECT IDSubject FROM Subjects WHERE SubjectName=@name), " +
-            //        "(SELECT IDStudent FROM Students WHERE Family=@stname))";
-            //        OleDbCommand command = new OleDbCommand(commandStr, DataBase.connection);
-
-            //        command.Parameters.AddWithValue("mark", dGV.Rows[index].Cells["Оценка"].Value.ToString());
-            //        command.Parameters.AddWithValue("name", dGV.Rows[index].Cells["Предмет"].Value.ToString());
-            //        command.Parameters.AddWithValue("stname", cBFamily.Text);
-
-
-            //        DataBase.DBCommand(command);
-            //    }
-            //}
-
-
         }
 
         private void butSave_Click(object sender, EventArgs e)
@@ -104,6 +112,52 @@ namespace BDApp
             for (int i = 0; i < dGV.Rows.Count; i++)
                 if(dGV.Rows[i].Cells["Оценка"].Value !=null)
                     UpdateData(i);
+            MessageBox.Show("Сохранение прошло успешно.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            LoadForm(nom);
+        }
+
+        private void butAdd_Click(object sender, EventArgs e)
+        {
+            AddMark addMark = new AddMark(cBFamily.Text, viewSudjects, viewStudents);
+            addMark.Show();
+            addMark.FormClosed += new FormClosedEventHandler(reload);
+        }
+
+        private void reload(object s, FormClosedEventArgs e)
+        {
+            LoadForm(nom);
+        }
+
+        private void butDelet_Click(object sender, EventArgs e)
+        {
+            if(dGV.SelectedRows.Count==1)
+            {
+                string commandDel = "DELETE FROM Tables WHERE IDSubject=@sub and IDStudent=@stud";
+                OleDbCommand command = new OleDbCommand(commandDel, DataBase.connection);
+                var id = "";
+                foreach(DataRow row in viewStudents.Table.Rows)
+                    if(cBFamily.Text==row["Family"].ToString())
+                    {
+                        id = row["IDStudent"].ToString();
+                    }
+                var idSub="";
+                foreach(DataRow row in viewSudjects.Table.Rows)
+                if(row["SubjectName"].ToString()==dGV.Rows[dGV.CurrentRow.Index].Cells["Предмет"].Value.ToString())
+                    {
+                        idSub = row["IDSubject"].ToString();
+                    }
+                command.Parameters.AddWithValue("sub", idSub);
+                command.Parameters.AddWithValue("stud", id);
+
+                DataBase.DBCommand(command);
+                MessageBox.Show("Запись удалена!","Сообщение",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                LoadForm(nom);
+            }
+            else
+            {
+                MessageBox.Show("Выберете только одну строку", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
