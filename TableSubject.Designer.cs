@@ -31,6 +31,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.CBSpetial = new System.Windows.Forms.ComboBox();
+            this.butDelet = new System.Windows.Forms.Button();
+            this.butAdd = new System.Windows.Forms.Button();
+            this.butSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -61,11 +64,44 @@
             this.CBSpetial.Size = new System.Drawing.Size(220, 24);
             this.CBSpetial.TabIndex = 3;
             // 
+            // butDelet
+            // 
+            this.butDelet.Location = new System.Drawing.Point(251, 100);
+            this.butDelet.Name = "butDelet";
+            this.butDelet.Size = new System.Drawing.Size(108, 28);
+            this.butDelet.TabIndex = 10;
+            this.butDelet.Text = "Удалить";
+            this.butDelet.UseVisualStyleBackColor = true;
+            this.butDelet.Click += new System.EventHandler(this.butDelet_Click);
+            // 
+            // butAdd
+            // 
+            this.butAdd.Location = new System.Drawing.Point(125, 100);
+            this.butAdd.Name = "butAdd";
+            this.butAdd.Size = new System.Drawing.Size(106, 28);
+            this.butAdd.TabIndex = 9;
+            this.butAdd.Text = "Добавить";
+            this.butAdd.UseVisualStyleBackColor = true;
+            this.butAdd.Click += new System.EventHandler(this.butAdd_Click);
+            // 
+            // butSave
+            // 
+            this.butSave.Location = new System.Drawing.Point(12, 100);
+            this.butSave.Name = "butSave";
+            this.butSave.Size = new System.Drawing.Size(94, 28);
+            this.butSave.TabIndex = 8;
+            this.butSave.Text = "Сохранить";
+            this.butSave.UseVisualStyleBackColor = true;
+            this.butSave.Click += new System.EventHandler(this.butSave_Click);
+            // 
             // TableSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 108);
+            this.ClientSize = new System.Drawing.Size(367, 140);
+            this.Controls.Add(this.butDelet);
+            this.Controls.Add(this.butAdd);
+            this.Controls.Add(this.butSave);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CBSpetial);
@@ -83,5 +119,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CBSpetial;
+        private System.Windows.Forms.Button butDelet;
+        private System.Windows.Forms.Button butAdd;
+        private System.Windows.Forms.Button butSave;
     }
 }

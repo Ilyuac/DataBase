@@ -13,6 +13,7 @@ namespace BDApp
     public partial class TableSpetial : Form
     {
         List<DataRow> rows = new List<DataRow>();
+
         public TableSpetial()
         {
             InitializeComponent();
@@ -34,6 +35,8 @@ namespace BDApp
 
         private void LoadInfo(object s, EventArgs e)
         {
+            
+            
             foreach(DataRow row in rows)
             {
                 if(row["Specialty"].ToString()==CBSpetial.Text)
@@ -43,7 +46,7 @@ namespace BDApp
             }
         }
 
-        private void Add(object s, EventArgs e)
+        private void Add()
         {
             System.Data.OleDb.OleDbCommand command = 
             new System.Data.OleDb.OleDbCommand("INSERT INTO [Specialty] ([Specialty], [Info]) VALUES (@Sp, @Inf)", 
@@ -55,17 +58,59 @@ namespace BDApp
 
         }
 
-        private void Delete(object s, EventArgs e)
+        private void Delete()
         {
             System.Data.OleDb.OleDbCommand command =
-            new System.Data.OleDb.OleDbCommand("DELTE FROM [Specialty] WHERE [Specialty]=@Sp",
+            new System.Data.OleDb.OleDbCommand("DELETE FROM [Specialty] WHERE [IDSpecial]=@Sp",
             DataBase.connection);
-            command.Parameters.AddWithValue("Sp", CBSpetial.Text);
+            foreach(DataRow row in rows)
+                if(row["Specialty"].ToString()== CBSpetial.Text)
+                    command.Parameters.AddWithValue("Sp", row["IDSpecial"].ToString());
 
             DataBase.DBCommand(command);
 
         }
 
+        private void UPdate()
+        {
+            System.Data.OleDb.OleDbCommand command =
+            new System.Data.OleDb.OleDbCommand("UPDATE Specialty SET Specialty.Specialty = @sp, Specialty.Info = @Inf " +
+            "WHERE(((Specialty.IDSpecial) = @id))",
+            DataBase.connection);
+            for (int i = 0; i < rows.Count; i++)
+            {
+                if (rows[i]["Specialty"].ToString() == CBSpetial.Text)
+                {
+                    command.Parameters.AddWithValue("id", rows[i]["Specialty"].ToString());
+                }
+            }
 
+            command.Parameters.AddWithValue("sp", CBSpetial.Text);
+            command.Parameters.AddWithValue("Inf", TBInfo.Text);
+
+            DataBase.DBCommand(command);
+
+        }
+
+        private void butSave_Click(object sender, EventArgs e)
+        {
+            UPdate();
+            MessageBox.Show("Сохранение прошло успешно.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadInfo(sender,e);
+        }
+
+        private void butAdd_Click(object sender, EventArgs e)
+        {
+            Add();
+            MessageBox.Show("Оценка добавлена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadInfo(sender, e);
+        }
+
+        private void butDelet_Click(object sender, EventArgs e)
+        {
+            Delete();
+            MessageBox.Show("Запись удалена!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadInfo(sender, e);
+        }
     }
 }

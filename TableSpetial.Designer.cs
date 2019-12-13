@@ -33,6 +33,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TBInfo = new System.Windows.Forms.TextBox();
+            this.butDelet = new System.Windows.Forms.Button();
+            this.butAdd = new System.Windows.Forms.Button();
+            this.butSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +75,7 @@
             this.groupBox1.Controls.Add(this.TBInfo);
             this.groupBox1.Location = new System.Drawing.Point(3, 116);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(458, 276);
+            this.groupBox1.Size = new System.Drawing.Size(428, 253);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Описание:";
@@ -83,14 +86,47 @@
             this.TBInfo.Location = new System.Drawing.Point(3, 18);
             this.TBInfo.Multiline = true;
             this.TBInfo.Name = "TBInfo";
-            this.TBInfo.Size = new System.Drawing.Size(452, 255);
+            this.TBInfo.Size = new System.Drawing.Size(422, 232);
             this.TBInfo.TabIndex = 4;
+            // 
+            // butDelet
+            // 
+            this.butDelet.Location = new System.Drawing.Point(320, 372);
+            this.butDelet.Name = "butDelet";
+            this.butDelet.Size = new System.Drawing.Size(108, 28);
+            this.butDelet.TabIndex = 7;
+            this.butDelet.Text = "Удалить";
+            this.butDelet.UseVisualStyleBackColor = true;
+            this.butDelet.Click += new System.EventHandler(this.butDelet_Click);
+            // 
+            // butAdd
+            // 
+            this.butAdd.Location = new System.Drawing.Point(147, 372);
+            this.butAdd.Name = "butAdd";
+            this.butAdd.Size = new System.Drawing.Size(106, 28);
+            this.butAdd.TabIndex = 6;
+            this.butAdd.Text = "Добавить";
+            this.butAdd.UseVisualStyleBackColor = true;
+            this.butAdd.Click += new System.EventHandler(this.butAdd_Click);
+            // 
+            // butSave
+            // 
+            this.butSave.Location = new System.Drawing.Point(12, 372);
+            this.butSave.Name = "butSave";
+            this.butSave.Size = new System.Drawing.Size(94, 28);
+            this.butSave.TabIndex = 5;
+            this.butSave.Text = "Сохранить";
+            this.butSave.UseVisualStyleBackColor = true;
+            this.butSave.Click += new System.EventHandler(this.butSave_Click);
             // 
             // TableSpetial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 392);
+            this.ClientSize = new System.Drawing.Size(433, 408);
+            this.Controls.Add(this.butDelet);
+            this.Controls.Add(this.butAdd);
+            this.Controls.Add(this.butSave);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -113,5 +149,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox TBInfo;
+        private System.Windows.Forms.Button butDelet;
+        private System.Windows.Forms.Button butAdd;
+        private System.Windows.Forms.Button butSave;
     }
 }
