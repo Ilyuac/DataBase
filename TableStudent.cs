@@ -90,7 +90,7 @@ namespace BDApp
         private void butFrist_Click(object sender, EventArgs e)
         {
             nomber = 1;
-            LoadInfo(nomber);
+            Previos();
         }
 
         private void butLast_Click(object sender, EventArgs e)
