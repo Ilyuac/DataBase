@@ -126,9 +126,12 @@
             // 
             // dGV
             // 
+            this.dGV.AllowUserToAddRows = false;
+            this.dGV.AllowUserToDeleteRows = false;
             this.dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGV.Location = new System.Drawing.Point(2, 48);
             this.dGV.Name = "dGV";
+            this.dGV.ReadOnly = true;
             this.dGV.RowHeadersWidth = 51;
             this.dGV.RowTemplate.Height = 24;
             this.dGV.Size = new System.Drawing.Size(746, 415);

@@ -24,7 +24,7 @@ namespace BDApp
 
 
             
-            
+            //Отличники
             var otlichkic = from s in get_Student.students where s.bull == 5 select s;
             dataGridView1.RowCount = (int)otlichkic.Count();
             dataGridView1.ColumnCount = 4;
@@ -136,7 +136,7 @@ namespace BDApp
             dataGridView1.Rows.Clear();
             
             
-            //
+            //разница минимум максимум
             var studGroups = from s in get_Student.students group s by s.name;
             double[] delta = new double[studGroups.Count()];
             int i = 0;

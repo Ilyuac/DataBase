@@ -20,7 +20,7 @@ namespace BDApp
             LoadForm(0);
         }
 
-        private void LoadForm(int nom)
+        private void LoadForm(int nom)//загрузка данных в форму
         {
             dGV.Rows.Clear();
             dGV.Columns.Clear();
@@ -79,7 +79,7 @@ namespace BDApp
 
         }
 
-        private void UpdateData(int index)
+        private void UpdateData(int index)//обновление данных
         {
             if (dGV.Rows[index].Cells["Фамилия"].Value != null)
             {
@@ -107,7 +107,7 @@ namespace BDApp
             }
         }
 
-        private void butSave_Click(object sender, EventArgs e)
+        private void butSave_Click(object sender, EventArgs e)//Сохранение 
         {
             for (int i = 0; i < dGV.Rows.Count; i++)
                 if(dGV.Rows[i].Cells["Оценка"].Value !=null)
@@ -117,7 +117,7 @@ namespace BDApp
             LoadForm(nom);
         }
 
-        private void butAdd_Click(object sender, EventArgs e)
+        private void butAdd_Click(object sender, EventArgs e)//Добавление данных
         {
             AddMark addMark = new AddMark(cBFamily.Text, viewSudjects, viewStudents);
             addMark.Show();
@@ -129,7 +129,7 @@ namespace BDApp
             LoadForm(nom);
         }
 
-        private void butDelet_Click(object sender, EventArgs e)
+        private void butDelet_Click(object sender, EventArgs e)//Удаление
         {
             if(dGV.SelectedRows.Count==1)
             {

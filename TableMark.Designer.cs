@@ -116,6 +116,7 @@
             // dGV
             // 
             this.dGV.AllowUserToAddRows = false;
+            this.dGV.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dGV.Location = new System.Drawing.Point(0, 0);

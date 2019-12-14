@@ -8,7 +8,7 @@ namespace BDApp
 {
     public abstract class DataBase
     {
-        public static string connectionString = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\VS Project\BDApp\Database.mdb";
+        public static string connectionString = @"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\VS Project\BDApp\Database.mdb";//строка подключения
         public static OleDbConnection connection;
         static OleDbCommand dbCommand;
         static OleDbDataReader dataReader;
@@ -19,8 +19,8 @@ namespace BDApp
         {
             return Table;
         }
-
-        public static void Connection(string command)
+        
+        public static void Connection(string command)//считывание данных из бд
         {
             Table = new DataTable();
             connection = new OleDbConnection(connectionString);
@@ -60,7 +60,7 @@ namespace BDApp
             ConnectionClose();
         }
 
-        public static DataTable SelectCommand(string command)
+        public static DataTable SelectCommand(string command)//комманда select
         {
             Table = new DataTable();
             connection = new OleDbConnection(connectionString);
@@ -100,7 +100,7 @@ namespace BDApp
             return Table;
         }
 
-        public static void DBCommand(OleDbCommand command)
+        public static void DBCommand(OleDbCommand command)//Выполненение запросов Update, Insert, Delete
         {
             ConnectionOpen();
             dbCommand = command;
@@ -108,16 +108,16 @@ namespace BDApp
             ConnectionClose();
         }
 
-        public static void ConnectionOpen()
+        public static void ConnectionOpen()//открытие подключения
         {
             connection.Open();
         }
-        public static void ConnectionClose()
+        public static void ConnectionClose()//закрытие подключение
         {
             connection.Close();
         }
 
-        public static void UPdate()
+        public static void UPdate()//Загрузка таблиц из БД
         {
             DataBase.Tables.Clear();
             DataBase.Connection("SELECT * FROM Specialty");

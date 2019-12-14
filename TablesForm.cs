@@ -43,7 +43,7 @@ namespace BDApp
             radioButton1.Checked = true;
         }
 
-        private void butSort_Click(object sender, EventArgs e)
+        private void butSort_Click(object sender, EventArgs e)//сортировка датагридвью
         {
             DataGridViewColumn Col = ReturnColumn();
 
@@ -53,7 +53,7 @@ namespace BDApp
                 dGV.Sort(Col, System.ComponentModel.ListSortDirection.Descending);
         }
 
-        private DataGridViewColumn ReturnColumn()
+        private DataGridViewColumn ReturnColumn()//выбор поля сортировки
         {
             System.Windows.Forms.DataGridViewColumn Col = dGV.Columns[0];
             switch (lBFilters.SelectedIndex)
@@ -62,7 +62,7 @@ namespace BDApp
                     Col = dGV.Columns[lBFilters.SelectedIndex];
                     break;
                 case 1:
-                    ;
+                    Col = dGV.Columns[lBFilters.SelectedIndex];
                     break;
                 case 2:
                     Col = dGV.Columns[lBFilters.SelectedIndex];
@@ -86,7 +86,7 @@ namespace BDApp
         private void butFiltr_Click(object sender, EventArgs e)
         {
             source.Filter = "Фамилия='" + cBFamily.Text + "'";
-        }
+        }//Фильтрация строк
 
         private void lBFilters_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -96,12 +96,12 @@ namespace BDApp
         private void butShowAll_Click(object sender, EventArgs e)
         {
             source.Filter = "";
-        }
+        }//Сброс фильтра
 
         private void butClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
+        }//зкрыть форму
 
         private void butSeartch_Click(object sender, EventArgs e)
         {
@@ -118,6 +118,6 @@ namespace BDApp
                         dGV[i, j].Style.BackColor = Color.AliceBlue;
                         dGV[i, j].Style.ForeColor = Color.Blue;
                     }
-        }
+        }//поиск
     }
 }
